@@ -5,13 +5,32 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.rrenat358</groupId>
-    <artifactId>_2121.GB.Java.05.SpringWeb.20221101</artifactId>
+    <artifactId>2121.GB.Java.05.SpringWeb.20221101</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     </properties>
+
+    <modules>
+        <module>Lesson01-Servlet-API</module>
+<!--        <module>Lesson02-Spring-Basics</module>-->
+<!--        <module>Lesson03-Spring-MVC</module>-->
+<!--        <module>Lesson04-Spring-Boot</module>-->
+<!--        <module>Lesson05-Hibernate</module>-->
+<!--        <module>Lesson07-Spring-Data</module>-->
+<!--        <module>Lesson08-Thymeleaf</module>-->
+<!--        <module>Lesson09-REST</module>-->
+<!--        <module>Lesson10-SpringApp</module>-->
+<!--        <module>Lesson10-Web</module>-->
+<!--        <module>Lesson11-SpringApp</module>-->
+<!--        <module>Lesson12-SpringApp</module>-->
+    </modules>
+
 
 </project>
