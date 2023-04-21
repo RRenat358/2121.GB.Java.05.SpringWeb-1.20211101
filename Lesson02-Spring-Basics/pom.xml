@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ru.rrenat358</groupId>
+        <artifactId>2121.GB.Java.05.SpringWeb.20221101</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <packaging>war</packaging>
+
+    <artifactId>Lesson02-Spring-Basics</artifactId>
+
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.25</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+        <!--OR-->
+        <!--        <dependency>-->
+        <!--            <groupId>javax.annotation</groupId>-->
+        <!--            <artifactId>javax.annotation-api</artifactId>-->
+        <!--            <version>1.3.2</version>-->
+        <!--        </dependency>-->
+
+        <!-- –––––––––––––––––––––––––––––– -->
+
+
+
+    </dependencies>
+
+</project>
