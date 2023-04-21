@@ -16,8 +16,8 @@ lesson02.VideoPoint
 00-38-00 == BeanFactory  
 00-39-30 == JavaConfig  
 00-43-00 == String Bean  
-00-46-30 ==  
-00-53-00 == PreDestroy  
+00-46-30 == PostConstruct  
+00-52-00 == PreDestroy  
 00-57-00 == Box  
 00-59-50 == @Scope  
 01-02-00 == @Scope session, request  
@@ -25,6 +25,8 @@ lesson02.VideoPoint
 01-06-00 == add JavaConfigMain  
 01-08-00 == getBeanDefinitionNames()  
 01-12-00 == StringContainer  
+01-16-20 == ответы на вопросы  
+01-26-20 == HomeWork  
 
 
 
