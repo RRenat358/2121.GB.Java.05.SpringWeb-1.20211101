@@ -9,7 +9,7 @@
 
     <packaging>war</packaging>
 
-    <artifactId>Lesson03-Spring-MVC2</artifactId>
+    <artifactId>Lesson03-Spring-MVC</artifactId>
 
 
     <dependencies>
