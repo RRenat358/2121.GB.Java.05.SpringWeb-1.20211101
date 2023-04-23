@@ -9,6 +9,9 @@ lesson03.VideoPoint
 00-04-00 ==  SpringBoot install  
 00-15-00 ==  HelloWorld    
 00-20-00 ==  HttpServlet    
+00-25-00 ==  parameter  
+00-25-00 ==  PathVariable    
+00-39-00 ==  DispatcherServlet    
 
 
 

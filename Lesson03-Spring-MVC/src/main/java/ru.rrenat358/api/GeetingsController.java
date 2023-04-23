@@ -1,17 +1,25 @@
 package ru.rrenat358.api;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServlet;
 
 @Controller
-public class GeetingsController {
+public class GeetingsController extends HttpServlet {
 
-    @GetMapping("/h")
+//    @GetMapping("/h")
+    @GetMapping("/h/{name}")
+//    @RequestMapping(value = "/h", method = RequestMethod.GET)
     @ResponseBody
-    public String helloWord() {
-        return "HW!";
+//    public String helloWord(@RequestParam String name) {
+    public String helloWord(@PathVariable String name) {
+        return "Hello  " + name + " !";
     }
+
+    // GET http://localhost:8180/app/hello?name=Igor
+    // [GET, POST, PUT, ... ] -> DispatcherServlet -> Ищет нужный контроллер -> Отдает ответ клиенту
+
 
 
 }
