@@ -9,7 +9,7 @@ lesson03.VideoPoint
 
 00-01-00 ==   
 00-04-00 == SpringBoot install  
-00-15-00 == HelloWorld    
+00-15-00 == HelloWorld
 00-20-00 == HttpServlet    
 00-24-00 == параметры в  запросе
 00-25-00 == parameter  
@@ -28,7 +28,7 @@ lesson03.VideoPoint
 01-06-00 == Ссылка thymeleaf    
 
 01-14-00 == Map students     
-01-20-00 == API     
+01-19-00 == API     
 01-24-50 == API Collection    
 01-26-00 == @FeignClient     
 01-28-00 == HomeWork03     
