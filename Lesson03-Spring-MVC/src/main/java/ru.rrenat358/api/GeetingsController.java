@@ -30,6 +30,8 @@ public class GeetingsController extends HttpServlet {
         return "home";
     }
 
+
+
     // GET http://localhost:8180/app/hello?name=Igor
     // [GET, POST, PUT, ... ] -> DispatcherServlet -> Ищет нужный контроллер -> Отдает ответ клиенту
 
