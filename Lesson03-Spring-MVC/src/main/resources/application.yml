@@ -1,0 +1,9 @@
+server:
+  port: 8180
+  servlet:
+    context-path: /app
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
