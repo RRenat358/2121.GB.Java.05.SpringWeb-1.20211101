@@ -12,6 +12,7 @@ lesson03.VideoPoint
 00-25-00 ==  parameter  
 00-25-00 ==  PathVariable    
 00-39-00 ==  DispatcherServlet    
+00-48-00 ==  шаблон /home    
 
 
 

@@ -16,7 +16,7 @@ public class SpringMvcApplication {
 		DispatcherServlet bean = context.getBean(DispatcherServlet.class);
 		System.out.println(bean);
 
-		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
+//		Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 	}
 
 }
