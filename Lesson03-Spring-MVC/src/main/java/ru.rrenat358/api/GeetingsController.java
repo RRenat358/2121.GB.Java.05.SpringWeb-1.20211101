@@ -1,6 +1,7 @@
 package ru.rrenat358.api;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,13 @@ public class GeetingsController extends HttpServlet {
 
 
     @GetMapping("/home")
-    public String home() {
+    public String home(@RequestParam(required = false) String name, Model model) {
+        if (name != null) {
+            model.addAttribute("name", name);
+        } else{
+            model.addAttribute("name", "Java");
+        }
+
         return "home";
     }
 
