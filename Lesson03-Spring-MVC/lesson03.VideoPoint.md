@@ -6,8 +6,6 @@ lesson03.VideoPoint
 
 ---  
 00-01-00 == Created project
-
-00-01-00 ==   
 00-04-00 == SpringBoot install  
 00-15-00 == HelloWorld
 00-20-00 == HttpServlet    
@@ -25,8 +23,7 @@ lesson03.VideoPoint
 00-57-50 == xml nameSpace
 00-59-50 == вывод списка  
 01-02-50 == thymeleaf foreach  
-01-06-00 == Ссылка thymeleaf    
-
+01-06-00 == Ссылка thymeleaf
 01-14-00 == Map students     
 01-19-00 == API     
 01-24-50 == API Collection    
