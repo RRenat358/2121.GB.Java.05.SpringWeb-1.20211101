@@ -1,5 +1,5 @@
 
-lesson03.VideoPoint
+lesson03.VideoPoint  
 
 ПлейПоинты видео лекции  
 
