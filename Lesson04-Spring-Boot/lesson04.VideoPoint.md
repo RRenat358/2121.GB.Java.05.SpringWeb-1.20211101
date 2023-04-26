@@ -11,7 +11,15 @@ lesson04.VideoPoint
 00-12-00 == конфигурация thymeleaf  
 00-14-00 == @ResponseBody  
 00-17-00 == json  
-00-22-40 == spring и трансляция объекта
+00-22-40 == spring и трансляция объекта jackson  
+00-25-40 == postman  
+00-30-00 == формы, простая <form>  
+00-38-30 == форма submit   
+00-42-00 == ссылочные типы   
+00-44-50 == @ResponseBody / @RestController  
+00-51-00 ==   
+00-53-00 == static/index.html, js  
+01-03-00 == перерыв  
 
 
 
