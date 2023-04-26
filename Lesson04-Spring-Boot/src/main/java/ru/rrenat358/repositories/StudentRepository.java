@@ -1,13 +1,12 @@
 package ru.rrenat358.repositories;
 
-import org.springframework.stereotype.Component;
 import ru.rrenat358.data.Student;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 
 @Component
 public class StudentRepository {
@@ -16,17 +15,11 @@ public class StudentRepository {
     @PostConstruct
     public void init() {
         students = new ArrayList<>(List.of(
-                new Student(1L, "Name01", 80),
-                new Student(2L, "Name02", 80),
-                new Student(3L, "Name03", 80)
+                new Student(1L, "Bob", 80),
+                new Student(2L, "Michael", 80),
+                new Student(3L, "John", 80)
         ));
     }
-
-    public void add(Student student) {
-        students.add(student);
-    }
-
-
 
     public List<Student> getAllStudents() {
         return Collections.unmodifiableList(students);
