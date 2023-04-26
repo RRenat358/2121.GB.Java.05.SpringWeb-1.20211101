@@ -3,12 +3,13 @@ package ru.rrenat358.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.data.Student;
 import ru.rrenat358.repositories.StudentRepository;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class MainController {
 
     private StudentRepository studentRepository;
@@ -18,8 +19,9 @@ public class MainController {
     }
 
     @GetMapping("/students")
-    @ResponseBody
     public List<Student> getAllStudents() {
         return studentRepository.getAllStudents();
     }
+
+
 }
