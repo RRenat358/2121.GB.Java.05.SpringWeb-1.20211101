@@ -21,6 +21,10 @@ lesson04.VideoPoint
 00-53-00 == static/index.html, js  
 01-03-00 == перерыв  
 01-11-00 ==   
+01-18-00 == services    
+01-20-00 == Controller / Service / Repository    
+01-25-00 == add button action   
+01-33-30 ==     
 
 
 
