@@ -16,9 +16,9 @@ public class StudentRepository {
     @PostConstruct
     public void init() {
         students = new ArrayList<>(List.of(
-                new Student(1L, "Name01"),
-                new Student(2L, "Name02"),
-                new Student(3L, "Name03")
+                new Student(1L, "Name01", 80),
+                new Student(2L, "Name02", 80),
+                new Student(3L, "Name03", 80)
         ));
     }
 
@@ -29,14 +29,14 @@ public class StudentRepository {
 
 
     public List<Student> getAllStudents() {
-
         return Collections.unmodifiableList(students);
     }
 
+    public void deleteById(Long id) {
+        students.removeIf(s -> s.getId().equals(id));
+    }
+
     public Student findById(Long id) {
-        return students.stream()
-                .filter(student -> student.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException(" -= Student not found =- "));
+        return students.stream().filter(s -> s.getId().equals(id)).findFirst().get();
     }
 }
