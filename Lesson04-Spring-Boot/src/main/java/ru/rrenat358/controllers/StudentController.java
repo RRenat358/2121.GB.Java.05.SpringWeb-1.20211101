@@ -1,9 +1,11 @@
 package ru.rrenat358.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.data.Student;
-import ru.rrenat358.repositories.StudentRepository;
 import ru.rrenat358.services.StudentService;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
