@@ -24,7 +24,13 @@ lesson04.VideoPoint
 01-18-00 == services    
 01-20-00 == Controller / Service / Repository    
 01-25-00 == add button action   
-01-33-30 ==     
+01-33-30 == reLoad page    
+01-40-00 ==   
+01-45-00 == add button +/-  
+01-54-00 ==   
+01-56-00 == js и красивости bootstrap  
+02-00-00 == HomeWork   
+02-03-00 == SpringMVC VS SpringBoot   
 
 
 
