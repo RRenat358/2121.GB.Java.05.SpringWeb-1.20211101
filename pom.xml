@@ -23,6 +23,7 @@
         <module>Lesson03-Spring-MVC</module>
         <module>Lesson04-Spring-Boot</module>
         <module>Lesson05-Hibernate</module>
+        <module>Lesson06-Hibernate</module>
 <!--        <module>Lesson07-Spring-Data</module>-->
 <!--        <module>Lesson08-Thymeleaf</module>-->
 <!--        <module>Lesson09-REST</module>-->
