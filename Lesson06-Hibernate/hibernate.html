@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        p, li { text-align: justify; }
+        table, tr, td { border: 1px solid black; }
+        .blocks td { height: 40px; text-align: center; }
+        p.reblock { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 4px 4px rgba(0,0,0,0.22); }
+        .tab td { height: 40px; padding: 4px; }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align: center;">Hibernate</h1>
+
+    <h2>Сущности (Entities)</h2>
+
+    <p>An entity is a lightweight persistent domain object. The primary programming artifact is the entity class. An
+        entity class may make use of auxiliary classes that serve as helper classes or that are used to represent the
+        state of the entity.</p>
+
+    <h3>Entity Class</h3>
+
+    <ul>
+        <li>
+            The entity class must be annotated with the Entity annotation or denoted in the XML descriptor as an
+            entity.
+        </li>
+        <li>
+            The entity class must have a no-arg constructor. The entity class may have other constructors as well.
+            The no-arg constructor must be public or protected.
+        </li>
+        <li>
+            The entity class must be a top-level class. An enum or interface must not be designated as an entity.
+        </li>
+        <li>
+            The entity class must not be final. No methods or persistent instance variables of the entity class may be
+            final.
+        </li>
+        <li>
+            If an entity instance is to be passed by value as a detached object (e.g., through a remote interface), the
+            entity class must implement the Serializable interface.
+        </li>
+        <li>
+            Entities support inheritance, polymorphic associations, and polymorphic queries.
+        </li>
+        <li>
+            Both abstract and concrete classes can be entities. Entities may extend non-entity classes as well as
+            entity classes, and non-entity classes may extend entity classes.
+        </li>
+        <li>
+            The persistent state of an entity is represented by instance variables, which may correspond to Java-
+            Beans properties. An instance variable must be directly accessed only from within the methods of the
+            entity by the entity instance itself. Instance variables must not be accessed by clients of the entity. The
+            state of the entity is available to clients only through the entity’s methods—i.e., accessor methods (getter/
+            setter methods) or other business methods.
+        </li>
+    </ul>
+
+    <h3>Entity State in Persistence Context</h3>
+
+    <ul>
+        <li>
+            <b>transient</b><br>
+            the entity has just been instantiated and is not associated with a persistence context.
+            It has no persistent representation in the database and typically no identifier value
+            has been assigned (unless the assigned generator was used).
+        </li>
+        <li>
+            <b>managed, or persistent</b><br>
+            the entity has an associated identifier and is associated with a persistence
+            context. It may or may not physically exist in the database yet.
+        </li>
+        <li>
+            <b>detached</b><br>
+            the entity has an associated identifier but is no longer associated with a persistence
+            context (usually because the persistence context was closed or the instance was evicted
+            from the context)
+        </li>
+        <li>
+            <b>removed</b><br>
+            the entity has an associated identifier and is associated with a persistence context,
+            however, it is scheduled for removal from the database.
+        </li>
+    </ul>
+
+    <h3>Entity Lifecycle</h3>
+    <img src="lifecycle.jpg">
+    <ul>
+        <li>
+            <b>Entity Instance Creation</b><br>
+            Entity instances are created by means of the new operation. An entity instance, when first created by
+            new is not yet persistent. An instance becomes persistent by means of the EntityManager API.
+        </li><br>
+        <li>
+            <b>Persisting an Entity Instance</b><br>
+            A new entity instance becomes both managed and persistent by invoking the persist method on it or
+            by cascading the persist operation.
+            The semantics of the persist operation, applied to an entity X are as follows:
+            <ul>
+                <li>
+                    If X is a new entity, it becomes managed. The entity X will be entered into the database at or
+                    before transaction commit or as a result of the flush operation.
+                </li>
+                <li>
+                    If X is a preexisting managed entity, it is ignored by the persist operation. However, the persist
+                    operation is cascaded to entities referenced by X, if the relationships from X to these other
+                    entities are annotated with the cascade=PERSIST or cascade=ALL annotation element
+                    value or specified with the equivalent XML descriptor element.
+                </li>
+                <li>
+                    If X is a removed entity, it becomes managed.
+                </li>
+                <li>
+                    If X is a detached object, the EntityExistsException may be thrown when the persist
+                    operation is invoked, or the EntityExistsException or another PersistenceException
+                    may be thrown at flush or commit time.
+                </li>
+                <li>
+                    For all entities Y referenced by a relationship from X, if the relationship to Y has been annotated
+                    with the cascade element value cascade=PERSIST or cascade=ALL, the persist
+                    operation is applied to Y.
+                </li>
+            </ul>
+        </li><br>
+        <li>
+            <b>Removal</b><br>
+            A managed entity instance becomes removed by invoking the remove method on it or by cascading the
+            remove operation.
+            The semantics of the remove operation, applied to an entity X are as follows:
+            <ul>
+                <li>
+                    If X is a new entity, it is ignored by the remove operation. However, the remove operation is
+                    cascaded to entities referenced by X, if the relationship from X to these other entities is annotated
+                    with the cascade=REMOVE or cascade=ALL annotation element value.
+                </li>
+                <li>
+                    If X is a detached entity, an IllegalArgumentException will be thrown by the remove
+                    operation (or the transaction commit will fail).
+                </li>
+                <li>
+                    If X is a removed entity, it is ignored by the remove operation.
+                </li>
+                <li>
+                    A removed entity X will be removed from the database at or before transaction commit or as a
+                    result of the flush operation.
+                </li>
+            </ul>
+            After an entity has been removed, its state (except for generated state) will be that of the entity at the
+            point at which the remove operation was called.
+        </li>
+    </ul>
+</div>
+</body>
+</html>
