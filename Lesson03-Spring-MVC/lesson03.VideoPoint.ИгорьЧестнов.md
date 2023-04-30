@@ -3,6 +3,9 @@ lesson03.VideoPoint
 
 ПлейПоинты видео лекции  
 
+---
+Java. Основы веб-разработки на Spring Framework. 20221101  
+-- Игорь Честнов --  
 
 ---  
 00-01-00 == Created project
