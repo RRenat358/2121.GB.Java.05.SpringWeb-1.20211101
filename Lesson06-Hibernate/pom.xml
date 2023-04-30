@@ -4,6 +4,7 @@
 
     <packaging>war</packaging>
 
+<!--    <groupId>com.flamexander</groupId>-->
     <groupId>ru.rrenat358</groupId>
     <artifactId>Lesson06-Hibernate</artifactId>
     <version>1.0-SNAPSHOT</version>
