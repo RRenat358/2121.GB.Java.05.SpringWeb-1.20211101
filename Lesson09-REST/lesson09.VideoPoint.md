@@ -5,7 +5,7 @@ lesson09.VideoPoint
 
 ---
 00-00-00 ==   
-00-03-00 == HomeWork  
+00-02-00 == HomeWork  
 
 
 
