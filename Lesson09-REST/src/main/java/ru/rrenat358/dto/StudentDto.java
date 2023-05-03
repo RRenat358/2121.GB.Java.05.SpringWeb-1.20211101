@@ -1,6 +1,6 @@
 package ru.rrenat358.dto;
 
-import com.geekbrains.spring.web.entities.Student;
+import ru.rrenat358.entities.Student;
 
 public class StudentDto {
     private Long id;

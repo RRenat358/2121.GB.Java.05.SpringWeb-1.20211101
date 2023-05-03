@@ -1,6 +1,6 @@
 package ru.rrenat358.controllers;
 
-import com.geekbrains.spring.web.dto.ResultDto;
+import ru.rrenat358.dto.ResultDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

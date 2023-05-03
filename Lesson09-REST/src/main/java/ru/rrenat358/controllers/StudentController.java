@@ -1,10 +1,10 @@
 package ru.rrenat358.controllers;
 
-import com.geekbrains.spring.web.dto.StudentDto;
-import com.geekbrains.spring.web.entities.Student;
-import com.geekbrains.spring.web.exceptions.ResourceNotFoundException;
-import com.geekbrains.spring.web.repositories.StudentRepository;
-import com.geekbrains.spring.web.services.StudentService;
+import ru.rrenat358.dto.StudentDto;
+import ru.rrenat358.entities.Student;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
+import ru.rrenat358.repositories.StudentRepository;
+import ru.rrenat358.services.StudentService;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
