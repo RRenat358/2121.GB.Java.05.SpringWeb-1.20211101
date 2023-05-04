@@ -1,7 +1,7 @@
 package ru.rrenat358.validators;
 
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.exceptions.ValidationException;
+import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.exceptions.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

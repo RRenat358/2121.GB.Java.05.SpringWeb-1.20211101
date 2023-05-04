@@ -1,10 +1,10 @@
 package ru.rrenat358.services;
 
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.entities.Product;
-import com.geekbrains.spring.web.exceptions.ResourceNotFoundException;
-import com.geekbrains.spring.web.repositories.ProductsRepository;
-import com.geekbrains.spring.web.repositories.specifications.ProductsSpecifications;
+import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
+import ru.rrenat358.repositories.ProductsRepository;
+import ru.rrenat358.repositories.specifications.ProductsSpecifications;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

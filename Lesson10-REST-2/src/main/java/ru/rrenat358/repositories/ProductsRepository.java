@@ -1,6 +1,6 @@
 package ru.rrenat358.repositories;
 
-import com.geekbrains.spring.web.entities.Product;
+import ru.rrenat358.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
