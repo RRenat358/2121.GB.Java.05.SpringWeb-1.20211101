@@ -8,19 +8,20 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-<!--    <packaging>war</packaging>-->
     <packaging>pom</packaging>
 
     <artifactId>Lesson11-Spring-Security</artifactId>
 
     <modules>
-        <module>inmemory</module>
         <module>dao</module>
+        <module>inmemory</module>
         <module>jdbc</module>
-        <module>session-jdbc</module>
-        <module>session-redis</module>
+
         <module>oauth2</module>
         <module>oauth2-google</module>
+
+        <module>session-jdbc</module>
+        <module>session-redis</module>
     </modules>
 
 </project>
