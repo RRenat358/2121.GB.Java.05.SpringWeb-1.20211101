@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>2121.GB.Java.05.SpringWeb.20221101</artifactId>
+        <groupId>ru.rrenat358</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <packaging>pom</packaging>
+
+    <artifactId>Lesson11-Spring-Security</artifactId>
+
+    <modules>
+        <module>dao</module>
+        <module>inmemory</module>
+        <module>jdbc</module>
+
+        <module>oauth2</module>
+        <module>oauth2-google</module>
+
+        <module>session-jdbc</module>
+        <module>session-redis</module>
+    </modules>
+
+</project>
