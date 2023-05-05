@@ -20,6 +20,7 @@
 <!--        <module>session-jdbc</module>-->
         <module>session-redis</module>
         <module>oauth2</module>
+        <module>oauth2-google</module>
     </modules>
 
 </project>
