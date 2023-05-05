@@ -15,7 +15,7 @@
 
     <modules>
 <!--        <module>inmemory</module>-->
-<!--        <module>dao</module>-->
+        <module>dao</module>
 <!--        <module>jdbc</module>-->
 <!--        <module>session-jdbc</module>-->
         <module>session-redis</module>
