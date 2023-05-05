@@ -1,6 +1,6 @@
 package ru.rrenat358.controllers;
 
-import com.geekbrains.spring.web.dto.ProfileDto;
+import ru.rrenat358.dto.ProfileDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

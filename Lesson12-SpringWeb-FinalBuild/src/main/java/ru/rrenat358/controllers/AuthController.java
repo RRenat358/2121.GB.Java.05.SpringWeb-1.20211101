@@ -1,10 +1,10 @@
 package ru.rrenat358.controllers;
 
-import com.geekbrains.spring.web.dto.JwtRequest;
-import com.geekbrains.spring.web.dto.JwtResponse;
-import com.geekbrains.spring.web.exceptions.AppError;
-import com.geekbrains.spring.web.services.UserService;
-import com.geekbrains.spring.web.utils.JwtTokenUtil;
+import ru.rrenat358.dto.JwtRequest;
+import ru.rrenat358.dto.JwtResponse;
+import ru.rrenat358.exceptions.AppError;
+import ru.rrenat358.services.UserService;
+import ru.rrenat358.utils.JwtTokenUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

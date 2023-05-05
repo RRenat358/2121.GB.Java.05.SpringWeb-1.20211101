@@ -1,8 +1,8 @@
 package ru.rrenat358.services;
 
-import com.geekbrains.spring.web.entities.Role;
-import com.geekbrains.spring.web.entities.User;
-import com.geekbrains.spring.web.repositories.UserRepository;
+import ru.rrenat358.entities.Role;
+import ru.rrenat358.entities.User;
+import ru.rrenat358.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

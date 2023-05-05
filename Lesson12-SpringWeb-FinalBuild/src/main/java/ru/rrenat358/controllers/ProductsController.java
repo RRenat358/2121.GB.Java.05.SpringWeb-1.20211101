@@ -1,11 +1,11 @@
 package ru.rrenat358.controllers;
 
-import com.geekbrains.spring.web.converters.ProductConverter;
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.entities.Product;
-import com.geekbrains.spring.web.exceptions.ResourceNotFoundException;
-import com.geekbrains.spring.web.services.ProductsService;
-import com.geekbrains.spring.web.validators.ProductValidator;
+import ru.rrenat358.converters.ProductConverter;
+import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
+import ru.rrenat358.services.ProductsService;
+import ru.rrenat358.validators.ProductValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;

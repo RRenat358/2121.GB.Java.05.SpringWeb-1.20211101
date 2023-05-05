@@ -1,7 +1,7 @@
 package ru.rrenat358.converters;
 
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.entities.Product;
+import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.entities.Product;
 import org.springframework.stereotype.Component;
 
 @Component
