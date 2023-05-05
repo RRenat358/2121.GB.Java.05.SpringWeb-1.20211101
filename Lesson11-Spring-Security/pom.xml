@@ -14,7 +14,7 @@
     <artifactId>Lesson11-Spring-Security</artifactId>
 
     <modules>
-<!--        <module>inmemory</module>-->
+        <module>inmemory</module>
         <module>dao</module>
 <!--        <module>jdbc</module>-->
 <!--        <module>session-jdbc</module>-->
