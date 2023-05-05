@@ -1,0 +1,15 @@
+server:
+  port: 8189
+  servlet:
+    context-path: /session_jdbc
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:mydatabase;MODE=PostgreSQL
+    username: sa
+    password:
+  session:
+    store-type: jdbc
+  h2:
+    console:
+      enabled: true
