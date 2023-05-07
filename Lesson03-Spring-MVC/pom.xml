@@ -2,11 +2,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <packaging>war</packaging>
-
-    <artifactId>Lesson03-Spring-MVC</artifactId>
-
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -14,6 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <packaging>war</packaging>
+
+    <artifactId>Lesson03-Spring-MVC</artifactId>
+
+<!--    <properties>-->
+<!--        <java.version>11</java.version>-->
+<!--    </properties>-->
 
     <dependencies>
         <dependency>
@@ -38,15 +40,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>9</source>
-                    <target>9</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
-
 </project>
