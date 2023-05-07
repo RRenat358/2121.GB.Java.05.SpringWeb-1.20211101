@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>2121.GB.Java.05.SpringWeb.20221101</artifactId>
+        <artifactId>2121.GB.Java.05.SpringWeb.20211101</artifactId>
         <groupId>ru.rrenat358</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
