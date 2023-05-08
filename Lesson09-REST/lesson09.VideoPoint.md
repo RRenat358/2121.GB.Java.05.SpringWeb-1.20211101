@@ -33,7 +33,7 @@ lesson09.VideoPoint
 01-58-30 == идея DTO   
 02-01-00 == DTO разные для разных задач   
 02-05-00 == HomeWork   
-
+//end  
 
 
 

@@ -41,7 +41,7 @@ lesson07.VideoPoint
 02-05-40 == репозиторий = интерфейс   
 02-10-00 == HomeWork   
 02-15-00 == профиль Spring = VM options: -Dspring.profiles.active=dev   
-
+//end  
 
 
 
