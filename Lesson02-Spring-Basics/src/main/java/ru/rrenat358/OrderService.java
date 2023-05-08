@@ -20,7 +20,7 @@ public class OrderService {
         System.out.println("Заказ создан:");
         System.out.println(productService.getTitleById(productId));
         try {
-            fileOut.write("READY".getBytes());
+            fileOut.write("READY ".getBytes());
             fileOut.flush();
         } catch (IOException e) {
             e.printStackTrace();
