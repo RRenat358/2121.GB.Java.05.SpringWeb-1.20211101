@@ -2,3 +2,12 @@ server:
   port: 8189
   servlet:
     context-path: /app
+
+
+#server.port = 8199
+#server.servlet.context-path = /app
+#server.servlet.a=10
+#server.servlet.b=10
+#server.servlet.c=10
+#server.servlet.d=10
+#server.servlet.e=10
