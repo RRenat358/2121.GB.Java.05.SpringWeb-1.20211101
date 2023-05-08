@@ -15,6 +15,10 @@ Java. Основы веб-разработки на Spring Framework
 00-32-30 == application.properties → *.yaml    
 00-35-30 == run    
 00-40-00 == .properties VS .yaml    
+00-43-00 == @Controller    
+00-48-00 == run    
+00-49-50 == @ResponseBody    
+00-52-30 == параметры в запросе    
 
 
 
