@@ -25,4 +25,12 @@ public class ProductRepository {
     }
 
 
+    public Product findById(Long id) {
+        return products.stream()
+                .filter(product -> product.getId().equals(id))
+                .findFirst()
+                .orElseThrow(()-> new RuntimeException());
+    }
+
+
 }
