@@ -3,6 +3,9 @@ package ru.rrenat358;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 @Component
@@ -11,8 +14,15 @@ public class BasketService {
     @Autowired
     private ProductService productService;
 
+    private HashSet<Product> inBasket;
 
-    private HashSet<Product> inBasket = new HashSet<>();
+
+    @PostConstruct
+    void init() {
+        inBasket = new HashSet<>();
+    }
+
+
 
 
     public void addById(Long id) {
@@ -20,9 +30,14 @@ public class BasketService {
         inBasket.add(p);
     }
 
-//    public HashSet<Product> showBasket() {
-//        return inBasket;
-//    }
+    public void removeById(Long id) {
+        Product p = productService.getProductById(id);
+        inBasket.remove(p);
+    }
+
+
+
+
 
     void showBasket() {
         for (Product product : inBasket) {
