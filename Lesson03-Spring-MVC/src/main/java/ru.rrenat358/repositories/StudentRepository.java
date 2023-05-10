@@ -19,7 +19,7 @@ public class StudentRepository {
                 new Student(2L, "Michael"),
                 new Student(3L, "John")
         ));
-        students.removeIf(s -> s.getId().equals(1L));
+//        students.removeIf(s -> s.getId().equals(1L));
     }
 
     public List<Student> getAllStudents() {
