@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -26,7 +27,7 @@ public class ProductRepositoryImpl implements ProductRepository{
 
 
     public List<Product> findAll() {
-        return products;
+        return Collections.unmodifiableList(products);
     }
 
 
