@@ -36,5 +36,9 @@ public class ProductRepository {
                 .orElseThrow(() -> new RuntimeException());
     }
 
+    public void removeById(Long id) {
+        products.remove(id);
+    }
+
 
 }
