@@ -1,4 +1,4 @@
-package ru.rrenat358;
+package ru.rrenat358.entity;
 
 
 public class Product {
