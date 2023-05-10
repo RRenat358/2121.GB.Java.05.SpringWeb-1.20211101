@@ -16,7 +16,27 @@ public class ReMarketApp {
         Long id = scanner.nextLong();
         basketService.addById(id);
 
+        addBasket(basketService);
+        basketService.showBasket();
+
+
+        context.close();
 
     }
+
+    private static void addBasket(BasketService basketService) {
+        for (int i = 1; i < 3 ; i++) {
+            Scanner scanner = new Scanner(System.in);
+            Long id = scanner.nextLong();
+            basketService.addById(id);
+        }
+
+    }
+
+
+//    private static void showBasket(BasketService basketService) {
+//        System.out.println(basketService);
+//
+//    }
 
 }

@@ -9,6 +9,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
     public void setProductRepository(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -18,3 +19,6 @@ public class ProductService {
 
     }
 }
+
+
+

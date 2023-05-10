@@ -19,10 +19,10 @@ public class ProductRepository {
     void init() {
         products = new ArrayList<>(Arrays.asList(
                 new Product(1L, "Яблоки"),
-                new Product(1L, "Бананы>"),
-                new Product(1L, "Киви"),
-                new Product(1L, "Ананас"),
-                new Product(1L, "Редис")
+                new Product(2L, "Бананы>"),
+                new Product(3L, "Киви"),
+                new Product(4L, "Ананас"),
+                new Product(5L, "Редис")
         ));
     }
 

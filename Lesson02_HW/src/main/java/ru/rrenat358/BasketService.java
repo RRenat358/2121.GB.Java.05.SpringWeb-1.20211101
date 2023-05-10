@@ -8,19 +8,26 @@ import java.util.HashSet;
 @Component
 public class BasketService {
 
-//    @Autowired
+    @Autowired
     private ProductService productService;
 
-    private HashSet<Product> basketService;
 
-    public BasketService(ProductService productService, HashSet<Product> basketService) {
-        this.productService = productService;
-        this.basketService = basketService;
-    }
+    private HashSet<Product> inBasket = new HashSet<>();
+
 
     public void addById(Long id) {
         Product p = productService.getProductById(id);
-        basketService.add(p);
+        inBasket.add(p);
+    }
+
+//    public HashSet<Product> showBasket() {
+//        return inBasket;
+//    }
+
+    void showBasket() {
+        for (Product product : inBasket) {
+            System.out.println(product);
+        }
     }
 
 
