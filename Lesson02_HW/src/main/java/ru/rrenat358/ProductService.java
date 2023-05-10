@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductService {
 
-    @Autowired
     private ProductRepository productRepository;
 
     @Autowired
@@ -14,10 +13,12 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+
     public Product getProductById(Long id) {
         return productRepository.findById(id);
-
     }
+
+
 }
 
 
