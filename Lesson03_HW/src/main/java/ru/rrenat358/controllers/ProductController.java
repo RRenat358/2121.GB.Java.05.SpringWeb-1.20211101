@@ -14,9 +14,15 @@ public class ProductController {
 
     private ProductRepository productRepository;
 
+
+    @GetMapping("/product")
+    private void findAll(Model model) {
+        model.addAttribute("product", productRepository.findAll());
+    }
+
     @GetMapping("/product/{id}")
     private void findById(Model model, @PathVariable Long id) {
-        model.addAttribute(productRepository.findById(id));
+        model.addAttribute("product",productRepository.findById(id));
     }
 
 
