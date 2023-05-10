@@ -15,9 +15,9 @@ public class ProductController {
     private ProductRepository productRepository;
 
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     private void findAll(Model model) {
-        model.addAttribute("product", productRepository.findAll());
+        model.addAttribute("products", productRepository.findAll());
     }
 
     @GetMapping("/product/{id}")
