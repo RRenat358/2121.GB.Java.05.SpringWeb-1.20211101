@@ -11,22 +11,38 @@ public class ReMarketApp {
 
         BasketService basketService = context.getBean(BasketService.class);
 
-        addBasket(basketService);
+        System.out.println("\n--- addToBasket --------------");
+        addToBasket(basketService);
+
+        System.out.println("\n--- showBasket----------------");
         basketService.showBasket();
+
+        System.out.println("\n--- removeFromBasket ---------");
+        removeFromBasket(basketService);
+
+        System.out.println("\n--- showBasket----------------");
+        basketService.showBasket();
+
+        System.out.println("\n------------------------------");
 
 
         context.close();
     }
 
-    private static void addBasket(BasketService basketService) {
+    private static void addToBasket(BasketService basketService) {
         for (int i = 0; i < 3 ; i++) {
             Scanner scanner = new Scanner(System.in);
             Long id = scanner.nextLong();
             basketService.addById(id);
         }
-
     }
 
+
+    private static void removeFromBasket(BasketService basketService) {
+            Scanner scanner = new Scanner(System.in);
+            Long id = scanner.nextLong();
+            basketService.removeById(id);
+    }
 
 
 }

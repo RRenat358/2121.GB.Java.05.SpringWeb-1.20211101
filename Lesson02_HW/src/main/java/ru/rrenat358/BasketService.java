@@ -23,20 +23,16 @@ public class BasketService {
     }
 
 
-
-
     public void addById(Long id) {
         Product p = productService.getProductById(id);
         inBasket.add(p);
     }
 
+
     public void removeById(Long id) {
         Product p = productService.getProductById(id);
         inBasket.remove(p);
     }
-
-
-
 
 
     void showBasket() {
