@@ -11,7 +11,7 @@
 
     <packaging>war</packaging>
 
-    <artifactId>Lesson03-Spring-MVC</artifactId>
+    <artifactId>Lesson03_HW</artifactId>
 
     <properties>
         <java.version>17</java.version>
