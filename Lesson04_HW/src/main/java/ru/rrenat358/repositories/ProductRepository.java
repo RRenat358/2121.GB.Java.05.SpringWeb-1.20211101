@@ -32,14 +32,14 @@ public class ProductRepository {
 
     private Product findById(Long id) {
         return products.stream()
-                .filter(product -> product.equals(id))
+                .filter(product -> product.getId().equals(id))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("-= Продукт не найден =-"));
     }
 
 
     private void deleteById(Long id) {
-        products.removeIf(product -> product.equals(id));
+        products.removeIf(product -> product.getId().equals(id));
     }
 
 
