@@ -4,6 +4,7 @@ package ru.rrenat358.repositories;
 import org.springframework.stereotype.Repository;
 import ru.rrenat358.entities.Product;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +15,8 @@ public class ProductRepository {
     List<Product> products;
 
 
-    private void init() {
+    @PostConstruct
+    public void init() {
         products = new ArrayList<>(List.of(
                 new Product(1L, "Яблоки", 20.99, "Красные", "Фрукты"),
                 new Product(2L, "Бананы", 50.80, "Эквадор", "Фрукты"),
@@ -25,12 +27,12 @@ public class ProductRepository {
     }
 
 
-    private List<Product> findAll() {
+    public List<Product> findAll() {
         return Collections.unmodifiableList(products);
     }
 
 
-    private Product findById(Long id) {
+    public Product findById(Long id) {
         return products.stream()
                 .filter(product -> product.getId().equals(id))
                 .findFirst()
@@ -38,7 +40,7 @@ public class ProductRepository {
     }
 
 
-    private void deleteById(Long id) {
+    public void deleteById(Long id) {
         products.removeIf(product -> product.getId().equals(id));
     }
 
