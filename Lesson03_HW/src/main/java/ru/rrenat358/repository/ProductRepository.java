@@ -41,7 +41,8 @@ public class ProductRepository {
 
 
     public void removeById(Long id) {
-        products.remove(id);
+//        products.remove(id); //не верно, т.к. в Коллекции может оказать >1 с одинаковым ID
+        products.removeIf(product -> product.getId().equals(id));
     }
 
 
