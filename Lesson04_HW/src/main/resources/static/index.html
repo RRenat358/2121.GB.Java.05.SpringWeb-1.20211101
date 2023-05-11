@@ -19,12 +19,12 @@
     <table class="table table-hover" cellpadding="0" cellspacing="0">
         <tr>
             <td>ID</td>
-            <td>Имя студента</td>
-            <td>Балл</td>
+            <td>Товар</td>
+            <td>Цена</td>
             <td>Действие</td>
         </tr>
         <tbody>
-        <tr ng-repeat="s in StudentsList">
+        <tr ng-repeat="s in ProductList">
             <td>{{s.id}}</td>
             <td>{{s.name}}</td>
             <td>
@@ -33,7 +33,7 @@
                 <button class="btn btn-primary" ng-click="changeScore(s.id, 5)">+</button>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="deleteStudent(s.id)">Исключить</button>
+                <button class="btn btn-danger" ng-click="deleteProduct(s.id)">Удалить</button>
             </td>
         </tr>
         </tbody>
