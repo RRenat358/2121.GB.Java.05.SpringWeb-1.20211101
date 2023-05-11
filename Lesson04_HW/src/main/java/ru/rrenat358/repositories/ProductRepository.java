@@ -18,11 +18,11 @@ public class ProductRepository {
     @PostConstruct
     public void init() {
         products = new ArrayList<>(List.of(
-                new Product(1L, "Яблоки", 20.99, "Красные", "Фрукты"),
-                new Product(2L, "Бананы", 50.80, "Эквадор", "Фрукты"),
-                new Product(3L, "Груши", 33.50, "Лесная красавица", "Фрукты"),
-                new Product(4L, "Сливы", 40.00, "Синие, чернослив", "Фрукты"),
-                new Product(5L, "Морковь", 15.00, "Воронежская", "Овощи")
+                new Product(1L, "Яблоки", 20.99, "Красные", "Фрукты",20),
+                new Product(2L, "Бананы", 50.80, "Эквадор", "Фрукты", 20),
+                new Product(3L, "Груши", 33.50, "Лесная красавица", "Фрукты", 20),
+                new Product(4L, "Сливы", 40.00, "Синие, чернослив", "Фрукты", 20),
+                new Product(5L, "Морковь", 15.00, "Воронежская", "Овощи", 20)
         ));
     }
 
@@ -43,6 +43,7 @@ public class ProductRepository {
     public void deleteById(Long id) {
         products.removeIf(product -> product.getId().equals(id));
     }
+
 
 
 

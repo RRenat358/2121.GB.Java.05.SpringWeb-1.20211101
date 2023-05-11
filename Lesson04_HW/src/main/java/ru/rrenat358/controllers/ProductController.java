@@ -37,7 +37,6 @@ public class ProductController {
     //todo
     @GetMapping("/products/change_score")
     public void changeScore(@RequestParam Long productId, @RequestParam Integer delta) {
-        Product p = productService.findById(productId);
-        p.getPrice();
+        productService.changeScore(productId,delta);
     }
 }

@@ -29,6 +29,10 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    public void changeScore(Long id, Integer delta) {
+        Product product = productRepository.findById(id);
+        product.setPrice(product.getPrice() + delta);
+    }
 
 
 
