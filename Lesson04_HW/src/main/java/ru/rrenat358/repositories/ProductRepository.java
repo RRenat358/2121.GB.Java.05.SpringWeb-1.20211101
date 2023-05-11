@@ -1,0 +1,49 @@
+package ru.rrenat358.repositories;
+
+
+import org.springframework.stereotype.Repository;
+import ru.rrenat358.entities.Product;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+@Repository
+public class ProductRepository {
+
+    List<Product> products;
+
+
+    private void init() {
+        products = new ArrayList<>(List.of(
+                new Product(1L, "Яблоки", 20.99, "Красные", "Фрукты"),
+                new Product(2L, "Бананы", 50.80, "Эквадор", "Фрукты"),
+                new Product(3L, "Груши", 33.50, "Лесная красавица", "Фрукты"),
+                new Product(4L, "Сливы", 40.00, "Синие, чернослив", "Фрукты"),
+                new Product(5L, "Морковь", 15.00, "Воронежская", "Овощи")
+        ));
+    }
+
+
+    private List<Product> findAll() {
+        return Collections.unmodifiableList(products);
+    }
+
+
+    private Product findById(Long id) {
+        return products.stream()
+                .filter(product -> product.equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("-= Продукт не найден =-"));
+    }
+
+
+    private void deleteById(Long id) {
+        products.removeIf(product -> product.equals(id));
+    }
+
+
+
+
+
+}

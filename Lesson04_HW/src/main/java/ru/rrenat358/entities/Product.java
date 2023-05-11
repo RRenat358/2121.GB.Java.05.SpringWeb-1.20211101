@@ -1,4 +1,4 @@
-package ru.rrenat358.entity;
+package ru.rrenat358.entities;
 
 
 import lombok.AllArgsConstructor;
