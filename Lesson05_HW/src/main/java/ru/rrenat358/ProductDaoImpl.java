@@ -1,9 +1,14 @@
 package ru.rrenat358;
 
 
+import org.hibernate.Session;
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class ProductDaoImpl implements ProductDao {
 
-    SessionFactoryUtils sessionFactoryUtils;
+    private final SessionFactoryUtils sessionFactoryUtils;
 
     public ProductDaoImpl(SessionFactoryUtils sessionFactoryUtils) {
         this.sessionFactoryUtils = sessionFactoryUtils;
@@ -11,8 +16,16 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product findById(Long id) {
-        return new Product();
+        try (Session session = sessionFactoryUtils.getSession()) {
+            session.beginTransaction();
+
+            Product product = session.get(Product.class, id);
+
+            session.getTransaction().commit();
+            return product;
+        }
     }
+
 
 
 }
