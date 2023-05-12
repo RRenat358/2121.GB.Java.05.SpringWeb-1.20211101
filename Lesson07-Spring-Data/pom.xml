@@ -13,9 +13,9 @@
 
     <artifactId>Lesson07-Spring-Data</artifactId>
 
-    <!--    <properties>-->
-    <!--        <java.version>11</java.version>-->
-    <!--    </properties>-->
+        <properties>
+            <java.version>11</java.version>
+        </properties>
 
     <dependencies>
         <dependency>

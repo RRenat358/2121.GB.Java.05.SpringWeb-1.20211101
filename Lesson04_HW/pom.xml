@@ -2,22 +2,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <packaging>war</packaging>
+
+    <artifactId>Lesson04_HW</artifactId>
+
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
-        <relativePath/>
+        <version>2.7.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <packaging>war</packaging>
-
-    <artifactId>Lesson10-REST-2</artifactId>
-
-        <properties>
-            <java.version>11</java.version>
-        </properties>
+    <properties>
+        <java.version>11</java.version>
+    </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -25,30 +30,25 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>provided</scope>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>compile</scope>
+        </dependency>
+
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.webjars/angularjs &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.webjars</groupId>-->
+<!--            <artifactId>angularjs</artifactId>-->
+<!--            <version>1.8.2</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
     <build>
