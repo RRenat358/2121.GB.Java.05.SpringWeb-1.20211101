@@ -93,6 +93,8 @@ public class ProductDaoImpl implements ProductDao {
         try (Session session = sessionFactoryUtils.getSession()) {
             session.beginTransaction();
 
+            session.get(Product.class, 1L);
+            session.get(Product.class, 2L);
 
             session.getTransaction().commit();
         }
