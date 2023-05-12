@@ -32,6 +32,7 @@
         <module>Lesson06-Hibernate</module>
 
         <module>Lesson07-Spring-Data</module>
+        <module>Lesson07_HW</module>
         <module>Lesson08-Thymeleaf</module>
         <module>Lesson09-REST</module>
         <module>Lesson10-REST-2</module>
