@@ -19,7 +19,7 @@ public class Product {
     private String comment;
     private String tag;
 
-    private Integer score;
+    private Integer point;
 
 
 }

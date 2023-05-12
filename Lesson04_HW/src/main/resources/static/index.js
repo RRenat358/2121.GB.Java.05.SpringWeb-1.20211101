@@ -15,9 +15,9 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
-    $scope.changeScore = function (productId, delta) {
+    $scope.changePoint = function (productId, delta) {
         $http({
-            url: contextPath + '/products/change_score',
+            url: contextPath + '/products/change_point',
             method: 'GET',
             params: {
                 productId: productId,

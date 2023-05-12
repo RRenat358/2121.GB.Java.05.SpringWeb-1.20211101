@@ -1,8 +1,6 @@
 package ru.rrenat358.controllers;
 
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,8 +33,8 @@ public class ProductController {
 
 
     //todo
-    @GetMapping("/products/change_score")
-    public void changeScore(@RequestParam Long productId, @RequestParam Integer delta) {
-        productService.changeScore(productId,delta);
+    @GetMapping("/products/change_point")
+    public void changePoint(@RequestParam Long productId, @RequestParam Integer delta) {
+        productService.changePoint(productId,delta);
     }
 }
