@@ -8,9 +8,10 @@ public class MainApp {
         sessionFactoryUtils.init();
         try {
             ProductDao userDao = new ProductDaoImpl(sessionFactoryUtils);
-//            userDao.testCaching();
+            userDao.testCaching();
 
         } catch (Exception e) {
+            System.out.println("=== Exception ==========================");
             e.printStackTrace();
         } finally {
             sessionFactoryUtils.shutdown();
