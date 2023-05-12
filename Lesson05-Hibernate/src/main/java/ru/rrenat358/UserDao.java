@@ -10,4 +10,5 @@ public interface UserDao {
     void save(User user);
     void updateNameById(Long id, String newName);
     void testCaching();
+
 }
