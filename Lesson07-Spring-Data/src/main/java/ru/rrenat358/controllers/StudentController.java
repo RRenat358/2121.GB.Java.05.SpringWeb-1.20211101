@@ -36,6 +36,8 @@ public class StudentController {
         studentService.changeScore(studentId, delta);
     }
 
+
+    // Фильтр
     @GetMapping("/students/score_between")
     public List<Student> findStudentsByScoreBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "100") Integer max) {
         return studentService.findByScoreBetween(min, max);
