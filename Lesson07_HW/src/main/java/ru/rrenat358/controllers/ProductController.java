@@ -19,7 +19,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public List<Product> findAll() {
         return productService.findAll();
     }
@@ -29,13 +29,17 @@ public class ProductController {
         return productService.findById(id);
     }
 
-    @GetMapping("/product/delete/{id}")
+    @GetMapping("/products/delete/{id}")
     public void deleteById(@PathVariable  Long id) {
         productService.deleteById(id);
     }
 
-    @GetMapping("/product/change_price")
+    @GetMapping("/products/change_price")
     public void changePrice() {
         productService.changePrice();
     }
+
+
+
+
 }
