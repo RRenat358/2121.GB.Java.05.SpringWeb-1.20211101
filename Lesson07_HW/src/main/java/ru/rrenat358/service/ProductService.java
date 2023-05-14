@@ -39,4 +39,9 @@ public class ProductService {
     }
 
 
+    public List<Product> findAllByPriceBetween(Integer min, Integer max) {
+        return productRepository.findAllByPriceBetween(min, max);
+    }
+
+
 }
