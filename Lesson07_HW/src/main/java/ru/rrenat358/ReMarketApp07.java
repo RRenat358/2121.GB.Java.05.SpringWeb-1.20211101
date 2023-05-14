@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReMarketApp {
+public class ReMarketApp07 {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(ReMarketApp.class, args);
+        SpringApplication.run(ReMarketApp07.class, args);
 
     }
 

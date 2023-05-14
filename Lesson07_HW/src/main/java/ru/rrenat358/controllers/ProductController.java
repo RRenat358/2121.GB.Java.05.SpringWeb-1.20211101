@@ -3,13 +3,14 @@ package ru.rrenat358.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.service.ProductService;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 public class ProductController {
 
 
