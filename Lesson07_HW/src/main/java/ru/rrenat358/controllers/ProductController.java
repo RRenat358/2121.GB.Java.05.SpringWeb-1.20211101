@@ -1,5 +1,9 @@
 package ru.rrenat358.controllers;
 
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,10 +29,31 @@ public class ProductController {
         return productService.findAll();
     }
 
+    // variant 01
+    @GetMapping("/product/{id}")
+    public Optional<Product> findById01(@PathVariable Long id) {
+        return productService.findById(id);
+    }
+
+    // variant 02
+    @GetMapping("/product/{id}")
+    public ResponseEntity<?> findById02(@PathVariable Long id) {
+        Optional<Product> product = productService.findById(id);
+
+        if (product.isPresent()) {
+            return new ResponseEntity<>(product.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    // variant 03
     @GetMapping("/product/{id}")
     public Optional<Product> findById(@PathVariable Long id) {
         return productService.findById(id);
     }
+
+
+
 
     @GetMapping("/products/delete/{id}")
     public void deleteById(@PathVariable  Long id) {
