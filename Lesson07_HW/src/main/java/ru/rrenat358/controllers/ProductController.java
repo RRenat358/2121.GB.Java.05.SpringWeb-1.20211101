@@ -95,4 +95,17 @@ public class ProductController {
 
 
 
+    @GetMapping("/products/price_belowlimit")
+    public List<Product> findAllByPriceBelowLimit(@RequestParam(defaultValue = "0") Integer maxLimit) {
+        return productService.findAllByPriceBelowLimit(maxLimit);
+    }
+
+    @GetMapping("/products/price_abovelimit")
+    public List<Product> findAllByPriceAboveLimit(@RequestParam(defaultValue = "0") Integer minLimit) {
+        return productService.findAllByPriceAboveLimit(minLimit);
+    }
+
+
+
+
 }

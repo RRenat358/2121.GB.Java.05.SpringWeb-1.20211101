@@ -15,15 +15,20 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     // @Query("select s from Student s where s.name = :name")
     Optional<Student> findByName(String name);
+    //или то же самое ↓
+    @Query(value = "select score from students where name = :name", nativeQuery = true)
+    Integer nativeSqlGetScoreByName(String name);
+    //или то же самое ↓
+    @Query("select s.score from Student s where s.name = ?1") //s.name == указан первый параметр метода
+    Integer hqlGetScoreByName(String name);
+
+
 
     @Query("select s from Student s where s.score < 20")
     List<Student> findLowRatingStudents();
 
-    @Query("select s.score from Student s where s.name = ?1")
-    Integer hqlGetScoreByName(String name);
 
-    @Query(value = "select score from students where name = :name", nativeQuery = true)
-    Integer nativeSqlGetScoreByName(String name);
+
 
     // Если бы у студентов был List<Book>, то не ленивая загрузка книг:
     // @Query("select s from Student s join fetch s.books where s.id = :id")
