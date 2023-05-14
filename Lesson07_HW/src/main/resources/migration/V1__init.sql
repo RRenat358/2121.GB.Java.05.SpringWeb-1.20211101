@@ -1,7 +1,10 @@
-create table if not exists students (id bigserial primary key, name varchar(255), score int);
+create table if not exists products (id bigserial primary key, name varchar(255), price int);
 
-insert into students (name, score)
+insert into products (name, price)
 values
-('Bob', 100),
-('Jack', 80),
-('John', 90);
+('Яблоки', 40),
+('Бананы', 60),
+('Груши', 50),
+('Морковь', 15),
+('Свекла', 23),
+('Картофель', 18);
