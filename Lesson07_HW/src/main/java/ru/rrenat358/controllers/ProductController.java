@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.AppError;
@@ -64,6 +65,7 @@ public class ProductController {
     }
 
     // variant 04
+    // самый верный
     @GetMapping("/products/{id}")
     public Product findById(@PathVariable Long id) {
         return productService.findById(id)
@@ -82,8 +84,8 @@ public class ProductController {
     }
 
     @GetMapping("/products/change_price")
-    public void changePrice() {
-        productService.changePrice();
+    public void changePrice(@RequestParam Long productId, @RequestParam Integer delta) {
+        productService.changePrice(productId, delta);
     }
 
 

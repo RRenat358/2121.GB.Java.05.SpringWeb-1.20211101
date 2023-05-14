@@ -2,15 +2,17 @@ package ru.rrenat358.service;
 
 import org.springframework.stereotype.Service;
 import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.repositories.ProductRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ProductService {
 
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -29,8 +31,11 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public void changePrice() {
-        //***
+    @Transactional
+    public void changePrice(Long productId, Integer delta) {
+        Product product = productRepository.findById(productId)
+                .orElseThrow(()-> new ResourceNotFoundException("Продукт не найден для ID : " + productId));
+        product.setPrice(product.getPrice() + delta);
     }
 
 
