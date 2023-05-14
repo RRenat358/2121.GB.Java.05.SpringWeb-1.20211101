@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.AppError;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductService;
 
 import java.util.List;
@@ -50,8 +51,8 @@ public class ProductController {
     }
 
     // variant 03
-    @GetMapping("/products/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id) {
+//    @GetMapping("/products/{id}")
+    public ResponseEntity<?> findById03(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
         if (product.isPresent()) {
             return new ResponseEntity<>(product.get(), HttpStatus.OK);
@@ -61,6 +62,16 @@ public class ProductController {
                 HttpStatus.NOT_FOUND
         );
     }
+
+    // variant 04
+    @GetMapping("/products/{id}")
+    public Product findById(@PathVariable Long id) {
+        return productService.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Продукт не найден для ID : " + id));
+    }
+
+
+
 
 
 
