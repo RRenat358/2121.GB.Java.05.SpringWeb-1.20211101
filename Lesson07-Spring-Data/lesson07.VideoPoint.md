@@ -24,7 +24,7 @@ lesson07.VideoPoint
 01-13-50 == репозиторий  
 01-14-50 == сущность  
 01-17-00 == цепочка вызовов  
-01-17-00 == Optional<>  
+01-19-00 == Optional<> == это более правильно, т.к. может вернуться null
 01-23-00 == ResponseEntity<>  
 01-25-00 == exception  
 01-29-00 == GlobalExceptionHandler  
