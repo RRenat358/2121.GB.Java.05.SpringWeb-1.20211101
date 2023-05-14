@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.AppError;
 import ru.rrenat358.service.ProductService;
 
 import java.util.List;
@@ -29,17 +30,19 @@ public class ProductController {
         return productService.findAll();
     }
 
+
+
+
     // variant 01
-    @GetMapping("/product/{id}")
+//    @GetMapping("/products/{id}")
     public Optional<Product> findById01(@PathVariable Long id) {
         return productService.findById(id);
     }
 
     // variant 02
-    @GetMapping("/product/{id}")
+//    @GetMapping("/products/{id}")
     public ResponseEntity<?> findById02(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
-
         if (product.isPresent()) {
             return new ResponseEntity<>(product.get(), HttpStatus.OK);
         }
@@ -47,9 +50,16 @@ public class ProductController {
     }
 
     // variant 03
-    @GetMapping("/product/{id}")
-    public Optional<Product> findById(@PathVariable Long id) {
-        return productService.findById(id);
+    @GetMapping("/products/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        Optional<Product> product = productService.findById(id);
+        if (product.isPresent()) {
+            return new ResponseEntity<>(product.get(), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(
+                new AppError(HttpStatus.NOT_FOUND.value(), "Продукт не найден для ID : " + id),
+                HttpStatus.NOT_FOUND
+        );
     }
 
 
