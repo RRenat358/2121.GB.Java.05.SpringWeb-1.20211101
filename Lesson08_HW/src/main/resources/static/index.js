@@ -1,60 +1,32 @@
 angular.module('app', []).controller('indexController', function ($scope, $http) {
     const contextPath = 'http://localhost:8189/app';
 
-    // console.log(123);
-
-    $scope.loadStudents = function () {
-        $http.get(contextPath + '/students')
+    $scope.loadProduct = function () {
+        $http.get(contextPath + '/products')
             .then(function (response) {
-                // console.log(response.data)
-                $scope.StudentsList = response.data;
+                $scope.ProductList = response.data;
             });
     };
 
-    $scope.deleteStudent = function (studentId) {
-        $http.get(contextPath + '/students/delete/' + studentId)
+    $scope.deleteProduct = function (productId) {
+        $http.get(contextPath + '/products/delete/' + productId)
             .then(function (response) {
-                $scope.loadStudents();
+                $scope.loadProduct();
             });
     }
 
-    // GET http://localhost:8189/app/students/change_score?studentId=1&delta=2
-    $scope.changeScore = function (studentId, delta) {
-        // console.log('Click!');
+    $scope.changePrice = function (productId, delta) {
         $http({
-            url: contextPath + '/students/change_score',
+            url: contextPath + '/products/change_price',
             method: 'GET',
             params: {
-                studentId: studentId,
+                productId: productId,
                 delta: delta
             }
         }).then(function (response) {
-            $scope.loadStudents();
+            $scope.loadProduct();
         });
     }
 
-    $scope.createStudentJson = function () {
-        console.log($scope.newStudentJson);
-        $http.post(contextPath + '/students', $scope.newStudentJson)
-            .then(function (response) {
-                $scope.loadStudents();
-            });
-    }
-
-    $scope.sumTwoNumbers = function () {
-        console.log($scope.calcAdd);
-        $http({
-            url: contextPath + '/calc/add',
-            method: 'get',
-            params: {
-                a: $scope.calcAdd.a,
-                b: $scope.calcAdd.b
-            }
-        }).then(function (response) {
-            alert('Сумма равна ' + response.data.value);
-            $scope.calcAdd.a = 10000;
-        });
-    }
-
-    $scope.loadStudents();
+    $scope.loadProduct();
 });
