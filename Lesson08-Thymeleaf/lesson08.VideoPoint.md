@@ -6,9 +6,9 @@ lesson08.VideoPoint
 ---
 00-00-00 ==   
 00-03-00 == HomeWork  
-00-10-00 == HQL  
+00-10-00 == HQL запросы, более точечно  
 00-14-00 == @PostConstruct  
-00-26-00 == Optional<>  
+00-26-00 == Optional<> = на уровне репозитория. Плохо в репе кидать исключение  
 00-36-00 == @Transaction  
 00-37-40 == Lesson Frontend end Backend  
 00-45-00 == схема Front end WebApp  
