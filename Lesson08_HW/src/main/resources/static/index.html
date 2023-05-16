@@ -15,6 +15,8 @@
 <body>
 
 <div class="container" ng-controller="indexController">
+
+    <!--============================================================-->
     <h3>Список продуктов</h3>
     <table class="table table-hover" cellpadding="0" cellspacing="0">
         <tr>
@@ -40,6 +42,25 @@
         </tr>
         </tbody>
     </table>
+    </br>
+    </br>
+    </br>
+
+    <!--============================================================-->
+    <h3>Добавить Продукт</h3>
+    <form novalidate ng-submit="saveNewProductFun()">
+        <input class="form-control" type="text" placeholder="Название" ng-model="saveNewProduct.name">
+        </br>
+        <input class="form-control" type="number" placeholder="Цена" ng-model="saveNewProduct.price">
+        </br>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+
+
+
+<!-- //end container-->
 </div>
+
+
 </body>
 </html>
