@@ -29,6 +29,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     }
 
 
+    //============================================================
     $scope.saveNewProductFun = function () {
         console.log($scope.saveNewProduct);
         $http.post(contextPath + '/products', $scope.saveNewProduct)
@@ -38,29 +39,33 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     }
 
 
-    // $scope.filterPriceBetweenFun2 = function (min, max) {
+    //============================================================
+    //============================================================
+
+    // $scope.filterPriceBetweenFun = function (min, max) {
     //     console.log($scope.findAllByPriceBetween);
-    //     $http.get(contextPath + '/products/price_between', $scope.findAllByPriceBetween)
+    //     $http.post(contextPath + '/products/price_between', $scope.findAllByPriceBetween)
     //         .then(function (response) {
     //             $scope.ProductList = response.data;
     //             $scope.loadProduct();
     //         });
     // }
 
-    $scope.filterPriceBetweenFun = function (min, max) {
+
+    $scope.filterPriceBetweenFun = function () {
+        console.log($scope.filterPriceBetween);
         $http({
             url: contextPath + '/products/price_between',
             method: 'GET',
             params: {
-                min: min,
-                max: max
+                min: $scope.filterPriceBetween.min,
+                max: $scope.filterPriceBetween.max
             }
         }).then(function (response) {
             $scope.ProductList = response.data;
             // $scope.loadProduct();
         });
     }
-
 
 
 

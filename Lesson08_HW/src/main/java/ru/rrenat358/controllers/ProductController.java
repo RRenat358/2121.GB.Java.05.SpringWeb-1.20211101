@@ -53,6 +53,17 @@ public class ProductController {
         return productService.findAllByPriceBetween(min, max);
     }
 
+//    @PostMapping("/products/price_between")
+//    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
+//        return productService.findAllByPriceBetween(min, max);
+//    }
+
+//    @PostMapping("/products/price_between")
+//    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
+//        return productService.findAllByPriceBetween(min, max);
+//    }
+
+
     //==============================
     // http://localhost:8189/app/products/price_belowlimit?maxLimit=50
     @GetMapping("/products/price_belowlimit")
