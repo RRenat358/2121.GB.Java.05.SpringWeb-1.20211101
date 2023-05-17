@@ -47,8 +47,17 @@
     </br>
 
     <!--============================================================-->
+<!--    <h3>Фильтр продуктов по Цене</h3>-->
+<!--    <form novalidate ng-submit="filterPriceBetweenFun()">-->
+<!--        <input class="form-control" type="number" placeholder="цена от " ng-model="filterPriceBetween.min">-->
+<!--        <input class="form-control" type="number" placeholder="цена до " ng-model="filterPriceBetween.max">-->
+<!--        </br>-->
+<!--        <button type="submit" class="btn btn-primary">OK</button>-->
+<!--    </form>-->
+<!--    </br>-->
+
     <h3>Фильтр продуктов по Цене</h3>
-    <form novalidate ng-submit="filterPriceBetweenFun()">
+    <form novalidate ng-submit="loadProduct()">
         <input class="form-control" type="number" placeholder="цена от " ng-model="filterPriceBetween.min">
         <input class="form-control" type="number" placeholder="цена до " ng-model="filterPriceBetween.max">
         </br>
