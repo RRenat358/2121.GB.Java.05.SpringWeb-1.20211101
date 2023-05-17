@@ -42,13 +42,19 @@ public class ProductController {
     //============================================================
     // ФИЛЬТЫ
 
-    @GetMapping("/products/change_price")
-    public void changePrice(@RequestParam Long productId, @RequestParam Integer delta) {
-        productService.changePrice(productId, delta);
+    // NoUsed
+//    @GetMapping("/products/change-price")
+//    public void changePrice(@RequestParam Long productId, @RequestParam Integer delta) {
+//        productService.changePrice(productId, delta);
+//    }
+
+    @GetMapping("/products/change-price-to-delta")
+    public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
+        productService.changePriceToDelta(id, delta);
     }
 
     // http://localhost:8189/app/products/price_between?min=50&max70
-    @GetMapping("/products/price_between")
+    @GetMapping("/products/price-between")
     public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
         return productService.findAllByPriceBetween(min, max);
     }
@@ -56,13 +62,13 @@ public class ProductController {
 
 
     //==============================
-    // http://localhost:8189/app/products/price_belowlimit?maxLimit=50
-    @GetMapping("/products/price_belowlimit")
+    // http://localhost:8189/app/products/price-belowlimit?maxLimit=50
+    @GetMapping("/products/price-belowlimit")
     public List<Product> findAllByPriceBelowLimit(@RequestParam(defaultValue = "0") Integer maxLimit) {
         return productService.findAllByPriceBelowLimit(maxLimit);
     }
 
-    @GetMapping("/products/price_abovelimit")
+    @GetMapping("/products/price-abovelimit")
     public List<Product> findAllByPriceAboveLimit(@RequestParam(defaultValue = "0") Integer minLimit) {
         return productService.findAllByPriceAboveLimit(minLimit);
     }

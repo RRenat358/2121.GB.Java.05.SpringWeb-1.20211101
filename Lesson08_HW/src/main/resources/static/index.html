@@ -33,9 +33,9 @@
             <td>{{s.name}}</td>
             <td>{{s.price}}</td>
             <td>
-                <button class="btn btn-primary" ng-click="changePrice(s.id, -5)">-</button>
+                <button class="btn btn-primary" ng-click="changePriceToDelta(s.id, -5)">-</button>
                 {{s.price}}
-                <button class="btn btn-primary" ng-click="changePrice(s.id, 5)">+</button>
+                <button class="btn btn-primary" ng-click="changePriceToDelta(s.id, 5)">+</button>
             </td>
             <td>
                 <button class="btn btn-danger" ng-click="deleteProduct(s.id)">Удалить</button>
@@ -79,8 +79,8 @@
     </br>
 
 
-
-<!-- //end container-->
+    <!--============================================================-->
+    <!-- //end container-->
 </div>
 
 

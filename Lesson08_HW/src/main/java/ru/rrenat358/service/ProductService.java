@@ -1,5 +1,6 @@
 package ru.rrenat358.service;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
@@ -31,11 +32,17 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    // NoUsed
+//    @Transactional
+//    public void changePrice(Long productId, Integer delta) {
+//        Product product = productRepository.findById(productId)
+//                .orElseThrow(()-> new ResourceNotFoundException("Продукт не найден для ID : " + productId));
+//        product.setPrice(product.getPrice() + delta);
+//    }
+
     @Transactional
-    public void changePrice(Long productId, Integer delta) {
-        Product product = productRepository.findById(productId)
-                .orElseThrow(()-> new ResourceNotFoundException("Продукт не найден для ID : " + productId));
-        product.setPrice(product.getPrice() + delta);
+    public void changePriceToDelta(Long id, Integer delta) {
+        productRepository.changePriceToDelta(id, delta);
     }
 
 

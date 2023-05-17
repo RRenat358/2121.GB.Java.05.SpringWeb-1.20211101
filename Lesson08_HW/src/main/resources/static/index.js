@@ -17,10 +17,23 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
     $scope.changePrice = function (productId, delta) {
         $http({
-            url: contextPath + '/products/change_price',
+            url: contextPath + '/products/change-price',
             method: 'GET',
             params: {
                 productId: productId,
+                delta: delta
+            }
+        }).then(function (response) {
+            $scope.loadProduct();
+        });
+    }
+
+    $scope.changePriceToDelta = function (id, delta) {
+        $http({
+            url: contextPath + '/products/change-price-to-delta',
+            method: 'GET',
+            params: {
+                id: id,
                 delta: delta
             }
         }).then(function (response) {
@@ -44,7 +57,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     // $scope.filterPriceBetweenFun = function () {
     //     console.log($scope.filterPriceBetween);
     //     $http({
-    //         url: contextPath + '/products/price_between',
+    //         url: contextPath + '/products/price-between',
     //         method: 'GET',
     //         params: {
     //             min: $scope.filterPriceBetween.min,
@@ -59,7 +72,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     $scope.loadProduct = function () {
     console.log($scope.filterPriceBetween);
     $http({
-        url: contextPath + '/products/price_between',
+        url: contextPath + '/products/price-between',
         method: 'GET',
         params: {
             min: $scope.filterPriceBetween ? $scope.filterPriceBetween.min : null,
