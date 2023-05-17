@@ -1,15 +1,11 @@
 package ru.rrenat358.controllers;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.rrenat358.entities.Product;
-import ru.rrenat358.exceptions.AppError;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ProductController {
@@ -55,7 +51,15 @@ public class ProductController {
 
     // http://localhost:8189/app/products/price_between?min=50&max70
     @GetMapping("/products/price-between")
-    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
+    public List<Product> findAllByPriceBetween(
+            @RequestParam(defaultValue = "0") Integer min,
+//            @RequestParam(defaultValue = Integer.MAX_VALUE) Integer max
+//            @RequestParam(defaultValue = Integer.toString(Integer.MAX_VALUE) Integer max
+//            @RequestParam(defaultValue = String.format("%d", Integer.MAX_VALUE)) Integer max
+//            @RequestParam(defaultValue = NumberFormat.getInstance(Integer.MAX_VALUE)) Integer max
+//            @RequestParam(defaultValue = String.valueOf(new Integer(Integer.MAX_VALUE)) Integer max
+            @RequestParam(defaultValue = Integer.MAX_VALUE + "") Integer max // Integer.toString = 2147483647
+            ) {
         return productService.findAllByPriceBetween(min, max);
     }
 
