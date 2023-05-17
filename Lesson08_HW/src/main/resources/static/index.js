@@ -52,18 +52,9 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             }
         }).then(function (response) {
             $scope.ProductList = response.data;
-            // $scope.loadProduct();
         });
     }
 
-    // $scope.filterPriceBetweenFun = function (min, max) {
-    //     console.log($scope.findAllByPriceBetween);
-    //     $http.post(contextPath + '/products/price_between', $scope.findAllByPriceBetween)
-    //         .then(function (response) {
-    //             $scope.ProductList = response.data;
-    //             $scope.loadProduct();
-    //         });
-    // }
 
 
 
