@@ -48,20 +48,15 @@ public class ProductController {
     }
 
     // http://localhost:8189/app/products/price_between?min=50&max70
-    @GetMapping("/products/price_between")
+//    @GetMapping("/products/price_between")
+//    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
+//        return productService.findAllByPriceBetween(min, max);
+//    }
+
+    @PostMapping("/products/price_between")
     public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
         return productService.findAllByPriceBetween(min, max);
     }
-
-//    @PostMapping("/products/price_between")
-//    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
-//        return productService.findAllByPriceBetween(min, max);
-//    }
-
-//    @PostMapping("/products/price_between")
-//    public List<Product> findAllByPriceBetween(@RequestParam(defaultValue = "0") Integer min, @RequestParam(defaultValue = "1000") Integer max) {
-//        return productService.findAllByPriceBetween(min, max);
-//    }
 
 
     //==============================
