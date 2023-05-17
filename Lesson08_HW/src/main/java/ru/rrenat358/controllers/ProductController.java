@@ -53,11 +53,6 @@ public class ProductController {
     @GetMapping("/products/price-between")
     public List<Product> findAllByPriceBetween(
             @RequestParam(defaultValue = "0") Integer min,
-//            @RequestParam(defaultValue = Integer.MAX_VALUE) Integer max
-//            @RequestParam(defaultValue = Integer.toString(Integer.MAX_VALUE) Integer max
-//            @RequestParam(defaultValue = String.format("%d", Integer.MAX_VALUE)) Integer max
-//            @RequestParam(defaultValue = NumberFormat.getInstance(Integer.MAX_VALUE)) Integer max
-//            @RequestParam(defaultValue = String.valueOf(new Integer(Integer.MAX_VALUE)) Integer max
             @RequestParam(defaultValue = Integer.MAX_VALUE + "") Integer max // Integer.toString = 2147483647
             ) {
         return productService.findAllByPriceBetween(min, max);
