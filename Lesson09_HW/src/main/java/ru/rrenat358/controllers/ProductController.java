@@ -1,5 +1,6 @@
 package ru.rrenat358.controllers;
 
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
@@ -17,11 +18,24 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/products")
-    public List<Product> findAll() {
-        return productService.findAll();
-    }
+//    @GetMapping("/products")
+//    public List<Product> findAll() {
+//        return productService.findAll();
+//    }
 
+
+    @GetMapping("/products")
+    public Page<Product> findByFilter(
+            @RequestParam(name = "p", defaultValue = "1") Integer page,
+            @RequestParam(name = "minPrice", required = false) Integer minPrice,
+            @RequestParam(name = "maxPrice", required = false) Integer maxPrice,
+            @RequestParam(name = "namePart", required = false) String namePart
+            ) {
+        if (page < 1) {
+            page = 1;
+        }
+        return productService.findByFilter(page, minPrice, maxPrice, namePart);
+    }
 
     @GetMapping("/products/{id}")
     public Product findById(@PathVariable Long id) {
