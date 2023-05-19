@@ -1,9 +1,14 @@
 package ru.rrenat358.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.repositories.ProductRepository;
+import ru.rrenat358.repositories.specifications.ProductSpecifications;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +20,29 @@ public class ProductService {
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
+    }
+
+
+    public Page<Product> findByFilter(
+            Integer page,
+            Integer minPrice, Integer maxPrice,
+            String namePart
+    ) {
+        PageRequest pageRequest = PageRequest.of(page - 1, 3);
+        Specification<Product> spec = Specification.where(null);
+
+        if (minPrice != null) {
+            spec = spec.and(ProductSpecifications.scoreGreaterOrEqualsThan(minPrice));
+        }
+        if (maxPrice != null) {
+            spec = spec.and(ProductSpecifications.scoreLessThanOrEqualsThan(maxPrice));
+        }
+        if (namePart != null) {
+            spec = spec.and(ProductSpecifications.nameLike(namePart));
+        }
+
+
+        return productRepository.findAll(spec, pageRequest);
     }
 
 
