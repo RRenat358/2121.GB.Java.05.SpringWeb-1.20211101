@@ -70,21 +70,20 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
 
     $scope.loadProduct = function () {
-    console.log($scope.filterPriceBetween);
+    console.log($scope.filter);
     $http({
-        url: contextPath + '/products/price-between',
+        url: contextPath + '/products',
         method: 'GET',
         params: {
-            min: $scope.filterPriceBetween ? $scope.filterPriceBetween.min : null,
-            max: $scope.filterPriceBetween ? $scope.filterPriceBetween.max : null
+            namePart: $scope.filter ? $scope.filter.namePart : null,
+            minPrice: $scope.filter ? $scope.filter.minPrice : null,
+            maxPrice: $scope.filter ? $scope.filter.maxPrice : null
         }
     }).then(function (response) {
         console.log(response.data);
         $scope.ProductList = response.data;
     });
 }
-
-
 
 
     $scope.loadProduct();

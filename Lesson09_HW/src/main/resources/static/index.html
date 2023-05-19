@@ -56,14 +56,35 @@
 <!--    </form>-->
 <!--    </br>-->
 
-    <h3>Фильтр продуктов по Цене</h3>
+    <h3>Фильтр продуктов</h3>
+<!--    <form novalidate ng-submit="loadProduct()">-->
+<!--        <input class="form-control" type="text" placeholder="имя " ng-model="filter.namePart">-->
+<!--        <input class="form-control" type="number" placeholder="цена от " ng-model="filter.minPrice">-->
+<!--        <input class="form-control" type="number" placeholder="цена до " ng-model="filter.maxPrice">-->
+<!--        </br>-->
+<!--        <button type="submit" class="btn btn-primary">OK</button>-->
+<!--    </form>-->
+<!--    </br>-->
+
     <form novalidate ng-submit="loadProduct()">
-        <input class="form-control" type="number" placeholder="цена от " ng-model="filterPriceBetween.min">
-        <input class="form-control" type="number" placeholder="цена до " ng-model="filterPriceBetween.max">
-        </br>
-        <button type="submit" class="btn btn-primary">OK</button>
+        <div class="form-floating input-group-sm">
+            <input type="text" class="form-control" id="filterName" placeholder="" ng-model="filter.namePart">
+            <label for="filterName">Имя продукта</label>
+        </div>
+        <p></p>
+        <div class="form-floating input-group-sm">
+            <input type="number" class="form-control" id="filterMinPrice" placeholder="" ng-model="filter.minPrice">
+            <label for="filterMinPrice">Мин. цена</label>
+        </div>
+        <p></p>
+        <div class="form-floating input-group-sm">
+            <input type="number" class="form-control" id="filterMaxPrice" placeholder="" ng-model="filter.maxPrice">
+            <label for="filterMaxPrice">Макс. цена</label>
+        </div>
+        <p></p>
+        <button class="btn btn-outline-warning btn-sm" style="width: 100%;" type="submit">Применить</button>
     </form>
-    </br>
+
 
 
     <!--============================================================-->
