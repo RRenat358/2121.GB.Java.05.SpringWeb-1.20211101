@@ -37,6 +37,7 @@ public class ProductController {
         return productService.findByFilter(page, minPrice, maxPrice, namePart);
     }
 
+
     @GetMapping("/products/{id}")
     public Product findById(@PathVariable Long id) {
         return productService.findById(id)
