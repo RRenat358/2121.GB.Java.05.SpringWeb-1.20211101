@@ -27,14 +27,14 @@ public class ProductController {
     @GetMapping("/products")
     public Page<Product> findByFilter(
             @RequestParam(name = "p", defaultValue = "1") Integer page,
+            @RequestParam(name = "namePart", required = false) String namePart,
             @RequestParam(name = "minPrice", required = false) Integer minPrice,
-            @RequestParam(name = "maxPrice", required = false) Integer maxPrice,
-            @RequestParam(name = "namePart", required = false) String namePart
+            @RequestParam(name = "maxPrice", required = false) Integer maxPrice
             ) {
         if (page < 1) {
             page = 1;
         }
-        return productService.findByFilter(page, minPrice, maxPrice, namePart);
+        return productService.findByFilter(page, namePart, minPrice, maxPrice);
     }
 
 

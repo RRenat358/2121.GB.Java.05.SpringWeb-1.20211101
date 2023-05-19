@@ -25,22 +25,21 @@ public class ProductService {
 
     public Page<Product> findByFilter(
             Integer page,
-            Integer minPrice, Integer maxPrice,
-            String namePart
+            String namePart,
+            Integer minPrice, Integer maxPrice
     ) {
         PageRequest pageRequest = PageRequest.of(page - 1, 3);
         Specification<Product> spec = Specification.where(null);
 
+        if (namePart != null) {
+            spec = spec.and(ProductSpecifications.nameLike(namePart));
+        }
         if (minPrice != null) {
             spec = spec.and(ProductSpecifications.scoreGreaterOrEqualsThan(minPrice));
         }
         if (maxPrice != null) {
             spec = spec.and(ProductSpecifications.scoreLessThanOrEqualsThan(maxPrice));
         }
-        if (namePart != null) {
-            spec = spec.and(ProductSpecifications.nameLike(namePart));
-        }
-
 
         return productRepository.findAll(spec, pageRequest);
     }

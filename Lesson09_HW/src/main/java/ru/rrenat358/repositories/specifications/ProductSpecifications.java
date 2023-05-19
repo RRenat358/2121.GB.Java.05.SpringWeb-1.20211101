@@ -5,6 +5,10 @@ import ru.rrenat358.entities.Product;
 
 public class ProductSpecifications {
 
+    public static Specification<Product> nameLike(String namePart) {
+        return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), String.format("%%%s%%", namePart));
+    }
+
     public static Specification<Product> scoreGreaterOrEqualsThan(Integer price) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
     }
@@ -13,7 +17,4 @@ public class ProductSpecifications {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("price"), price);
     }
 
-    public static Specification<Product> nameLike(String namePart) {
-        return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), String.format("%%%s%%", namePart));
-    }
 }
