@@ -19,12 +19,12 @@ public class ProductController {
         this.productService = productService;
     }
 
-//    @GetMapping("/products")
+    // NoUsed
+//    @GetMapping("")
 //    public List<Product> findAll() {
 //        return productService.findAll();
 //    }
 
-    //    @GetMapping("")
     @GetMapping
     public Page<ProductDto> findByFilter(
             @RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -81,16 +81,6 @@ public class ProductController {
 
     //============================================================
     // PUT
-//    @PutMapping("")
-//    @PutMapping
-//    public void updateProduct(@RequestBody ProductDto productDto ) {
-//        Optional<Product> product = productService.findById(productDto.getId());
-//        if (product.isPresent()) {
-//            product.get().setName(productDto.getName());
-//            product.get().setPrice(productDto.getPrice());
-//            productService.saveProduct(product.get());
-//        }
-//    }
 
     @PutMapping
     public ProductDto updateProduct(@RequestBody ProductDto productDto) {
