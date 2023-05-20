@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.repositories.ProductRepository;
 import ru.rrenat358.repositories.specifications.ProductSpecifications;
 
@@ -49,7 +50,8 @@ public class ProductService {
     }
 
     public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
+        return Optional.ofNullable(productRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id)));
     }
 
     @Transactional

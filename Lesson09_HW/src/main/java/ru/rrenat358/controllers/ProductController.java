@@ -4,10 +4,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
-import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductService;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -26,8 +24,7 @@ public class ProductController {
 //        return productService.findAll();
 //    }
 
-
-//    @GetMapping("")
+    //    @GetMapping("")
     @GetMapping
     public Page<ProductDto> findByFilter(
             @RequestParam(name = "p", defaultValue = "1") Integer page,
@@ -44,9 +41,8 @@ public class ProductController {
 
 
     @GetMapping("/{id}")
-    public Product findById(@PathVariable Long id) {
-        return productService.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
+    public Optional<ProductDto> findById(@PathVariable Long id) {
+        return productService.findById(id).map(product -> new ProductDto(product));
     }
 
 
@@ -66,8 +62,8 @@ public class ProductController {
         product.setId(productDto.getId());
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
-        productService.saveProduct(product);
-        return productDto;
+        Product product2 = productService.saveProduct(product);
+        return new ProductDto(product2);
     }
 
     //============================================================
@@ -80,21 +76,32 @@ public class ProductController {
     // NoUsed
     @PatchMapping("/change-price")
     public void changePrice(@RequestParam Long id, @RequestParam Integer newPrice) {
-
         productService.changePrice(id, newPrice);
     }
 
     //============================================================
     // PUT
 //    @PutMapping("")
+//    @PutMapping
+//    public void updateProduct(@RequestBody ProductDto productDto ) {
+//        Optional<Product> product = productService.findById(productDto.getId());
+//        if (product.isPresent()) {
+//            product.get().setName(productDto.getName());
+//            product.get().setPrice(productDto.getPrice());
+//            productService.saveProduct(product.get());
+//        }
+//    }
+
     @PutMapping
-    public void updateProduct(@RequestBody ProductDto productDto ) {
+    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
         Optional<Product> product = productService.findById(productDto.getId());
         if (product.isPresent()) {
             product.get().setName(productDto.getName());
             product.get().setPrice(productDto.getPrice());
-            productService.saveProduct(product.get());
+            Product product2 = productService.saveProduct(product.get());
+            return new ProductDto(product2);
         }
+        return null;
     }
 
     //============================================================

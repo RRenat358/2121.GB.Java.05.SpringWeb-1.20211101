@@ -29,5 +29,4 @@ public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpec
     @Query("UPDATE Product p SET p.price = ?2 WHERE p.id = ?1")
     void changePrice(Long id, Integer newPrice);
 
-
 }
