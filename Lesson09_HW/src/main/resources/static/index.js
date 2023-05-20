@@ -1,13 +1,26 @@
 angular.module('app', []).controller('indexController', function ($scope, $http) {
     const contextPath = 'http://localhost:8189/app';
 
-    // $scope.loadProduct = function () {
-    //     $http.get(contextPath + '/products')
-    //         .then(function (response) {
-    //             $scope.ProductList = response.data;
-    //         });
-    // };
 
+    //============================================================
+    //Page<Product> findByFilter()
+    $scope.loadProduct = function () {
+        console.log($scope.filter);
+        $http({
+            url: contextPath + '/products',
+            method: 'GET',
+            params: {
+                namePart: $scope.filter ? $scope.filter.namePart : null,
+                minPrice: $scope.filter ? $scope.filter.minPrice : null,
+                maxPrice: $scope.filter ? $scope.filter.maxPrice : null
+            }
+        }).then(function (response) {
+            console.log(response.data);
+            $scope.ProductList = response.data.content;
+        });
+    }
+
+    //============================================================
     $scope.deleteProduct = function (productId) {
         $http.get(contextPath + '/products/delete/' + productId)
             .then(function (response) {
@@ -41,7 +54,6 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
         });
     }
 
-
     //============================================================
     $scope.saveNewProductFun = function () {
         console.log($scope.saveNewProduct);
@@ -52,38 +64,8 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     }
 
 
-    //============================================================
-    //============================================================
-    // $scope.filterPriceBetweenFun = function () {
-    //     console.log($scope.filterPriceBetween);
-    //     $http({
-    //         url: contextPath + '/products/price-between',
-    //         method: 'GET',
-    //         params: {
-    //             min: $scope.filterPriceBetween.min,
-    //             max: $scope.filterPriceBetween.max
-    //         }
-    //     }).then(function (response) {
-    //         $scope.ProductList = response.data;
-    //     });
-    // }
 
 
-    $scope.loadProduct = function () {
-    console.log($scope.filter);
-    $http({
-        url: contextPath + '/products',
-        method: 'GET',
-        params: {
-            namePart: $scope.filter ? $scope.filter.namePart : null,
-            minPrice: $scope.filter ? $scope.filter.minPrice : null,
-            maxPrice: $scope.filter ? $scope.filter.maxPrice : null
-        }
-    }).then(function (response) {
-        console.log(response.data);
-        $scope.ProductList = response.data.content;
-    });
-}
 
 
     $scope.loadProduct();
