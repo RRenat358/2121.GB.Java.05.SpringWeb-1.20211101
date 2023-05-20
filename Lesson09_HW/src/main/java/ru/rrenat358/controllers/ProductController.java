@@ -8,6 +8,7 @@ import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -52,10 +53,21 @@ public class ProductController {
     //============================================================
     // POST
 //    @PostMapping("")
+//    @PostMapping
+//    public Product saveNewProduct(@RequestBody Product product) {
+//        product.setId(null); //на всякий случай
+//        return productService.saveProduct(product);
+//    }
+
     @PostMapping
-    public Product saveNewProduct(@RequestBody Product product) {
-        product.setId(null); //на всякий случай
-        return productService.saveProduct(product);
+    public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
+        productDto.setId(null); //на всякий случай
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setName(productDto.getName());
+        product.setPrice(productDto.getPrice());
+        productService.saveProduct(product);
+        return productDto;
     }
 
     //============================================================
@@ -68,6 +80,7 @@ public class ProductController {
     // NoUsed
     @PatchMapping("/change-price")
     public void changePrice(@RequestParam Long id, @RequestParam Integer newPrice) {
+
         productService.changePrice(id, newPrice);
     }
 
@@ -75,8 +88,13 @@ public class ProductController {
     // PUT
 //    @PutMapping("")
     @PutMapping
-    public void updateProduct(@RequestBody Product product) {
-        productService.saveProduct(product);
+    public void updateProduct(@RequestBody ProductDto productDto ) {
+        Optional<Product> product = productService.findById(productDto.getId());
+        if (product.isPresent()) {
+            product.get().setName(productDto.getName());
+            product.get().setPrice(productDto.getPrice());
+            productService.saveProduct(product.get());
+        }
     }
 
     //============================================================
