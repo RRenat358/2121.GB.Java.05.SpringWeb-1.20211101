@@ -1,12 +1,12 @@
 angular.module('app', []).controller('indexController', function ($scope, $http) {
     const contextPath = 'http://localhost:8189/app';
 
-    $scope.loadProduct = function () {
-        $http.get(contextPath + '/products')
-            .then(function (response) {
-                $scope.ProductList = response.data;
-            });
-    };
+    // $scope.loadProduct = function () {
+    //     $http.get(contextPath + '/products')
+    //         .then(function (response) {
+    //             $scope.ProductList = response.data;
+    //         });
+    // };
 
     $scope.deleteProduct = function (productId) {
         $http.get(contextPath + '/products/delete/' + productId)
@@ -81,7 +81,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
         }
     }).then(function (response) {
         console.log(response.data);
-        $scope.ProductList = response.data;
+        $scope.ProductList = response.data.content;
     });
 }
 
