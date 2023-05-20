@@ -4,7 +4,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
     //============================================================
     //Page<Product> findByFilter()
-    $scope.loadProduct = function () {
+    $scope.loadProduct = function (pageIndex = 1) {
         console.log($scope.filter);
         $http({
             url: contextPath + '/products',
