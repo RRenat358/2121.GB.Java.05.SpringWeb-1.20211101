@@ -27,7 +27,7 @@ public class ProductService {
             String namePart,
             Integer minPrice, Integer maxPrice
     ) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 3);
+        PageRequest pageRequest = PageRequest.of(page - 1, 5);
         Specification<Product> spec = Specification.where(null);
 
         if (namePart != null) {
