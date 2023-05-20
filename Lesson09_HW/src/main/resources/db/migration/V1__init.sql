@@ -1,13 +1,13 @@
 create table if not exists products (id bigserial primary key,
     name varchar(255),
     proteins varchar(255), fats varchar(255), carbohydrates varchar(255), calories varchar(255),
-    groupProduct varchar(255),
+    group_product varchar(255),
     price int);
 
 insert into products (
                       name,
                       proteins, fats, carbohydrates, calories,
-                      groupProduct,
+                      group_product,
                       price)
 values
 ('Абрикосы','0,7','0','10,1','44','фрукты, ягоды','190'),

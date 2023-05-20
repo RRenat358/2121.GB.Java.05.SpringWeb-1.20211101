@@ -28,4 +28,21 @@ public class Product {
 
 
 
+    @Column(name = "proteins")
+    String proteins;
+
+    @Column(name = "fats")
+    String fats;
+
+    @Column(name = "carbohydrates")
+    String carbohydrates;
+
+    @Column(name = "calories")
+    String calories;
+
+    @Column(name = "group_product")
+    String groupProduct;
+
+
+
 }
