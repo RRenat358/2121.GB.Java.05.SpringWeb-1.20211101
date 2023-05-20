@@ -9,6 +9,7 @@ import ru.rrenat358.service.ProductService;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/v1/products")
 public class ProductController {
 
 
@@ -24,7 +25,7 @@ public class ProductController {
 //    }
 
 
-    @GetMapping("/products")
+    @GetMapping("")
     public Page<Product> findByFilter(
             @RequestParam(name = "p", defaultValue = "1") Integer page,
             @RequestParam(name = "namePart", required = false) String namePart,
@@ -38,7 +39,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public Product findById(@PathVariable Long id) {
         return productService.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
@@ -49,7 +50,7 @@ public class ProductController {
     //============================================================
     // POST
 
-    @PostMapping("/products")
+    @PostMapping("")
     public Product saveNewProduct(@RequestBody Product product) {
         product.setId(null); //на всякий случай
         return productService.saveProduct(product);
@@ -57,14 +58,14 @@ public class ProductController {
 
     //============================================================
     // PATCH
-    @PatchMapping("/products/change-price-to-delta")
+    @PatchMapping("/change-price-to-delta")
     public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
         productService.changePriceToDelta(id, delta);
     }
 
     //============================================================
     // DELETE
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
         productService.deleteById(id);
     }
