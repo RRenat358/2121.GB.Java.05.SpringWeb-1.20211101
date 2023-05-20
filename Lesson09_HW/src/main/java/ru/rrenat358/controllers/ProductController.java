@@ -31,7 +31,7 @@ public class ProductController {
             @RequestParam(name = "namePart", required = false) String namePart,
             @RequestParam(name = "minPrice", required = false) Integer minPrice,
             @RequestParam(name = "maxPrice", required = false) Integer maxPrice
-            ) {
+    ) {
         if (page < 1) {
             page = 1;
         }
@@ -44,7 +44,6 @@ public class ProductController {
         return productService.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
     }
-
 
 
     //============================================================
@@ -62,6 +61,13 @@ public class ProductController {
     public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
         productService.changePriceToDelta(id, delta);
     }
+
+    //============================================================
+    // PUT
+//    @GetMapping("/{id}")
+//    public void changeProduct(@RequestParam Long id, @RequestParam Product product) {
+//        productService.changeProduct(id, product);
+//    }
 
     //============================================================
     // DELETE
