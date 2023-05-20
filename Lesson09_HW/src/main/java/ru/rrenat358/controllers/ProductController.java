@@ -49,6 +49,7 @@ public class ProductController {
 
     //============================================================
     // POST
+//    @PostMapping("")
     @PostMapping
     public Product saveNewProduct(@RequestBody Product product) {
         product.setId(null); //на всякий случай
@@ -70,7 +71,8 @@ public class ProductController {
 
     //============================================================
     // PUT
-    @GetMapping
+//    @PutMapping("")
+    @PutMapping
     public void updateProduct(@RequestBody Product product) {
         productService.saveProduct(product);
     }
