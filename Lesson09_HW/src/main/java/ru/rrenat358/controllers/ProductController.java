@@ -25,7 +25,8 @@ public class ProductController {
 //    }
 
 
-    @GetMapping("")
+//    @GetMapping("")
+    @GetMapping
     public Page<Product> findByFilter(
             @RequestParam(name = "p", defaultValue = "1") Integer page,
             @RequestParam(name = "namePart", required = false) String namePart,
@@ -48,8 +49,7 @@ public class ProductController {
 
     //============================================================
     // POST
-
-    @PostMapping("")
+    @PostMapping
     public Product saveNewProduct(@RequestBody Product product) {
         product.setId(null); //на всякий случай
         return productService.saveProduct(product);
@@ -62,12 +62,18 @@ public class ProductController {
         productService.changePriceToDelta(id, delta);
     }
 
+    // NoUsed
+    @PatchMapping("/change-price")
+    public void changePrice(@RequestParam Long id, @RequestParam Integer newPrice) {
+        productService.changePrice(id, newPrice);
+    }
+
     //============================================================
     // PUT
-//    @GetMapping("/{id}")
-//    public void changeProduct(@RequestParam Long id, @RequestParam Product product) {
-//        productService.changeProduct(id, product);
-//    }
+    @GetMapping
+    public void updateProduct(@RequestBody Product product) {
+        productService.saveProduct(product);
+    }
 
     //============================================================
     // DELETE
@@ -80,18 +86,6 @@ public class ProductController {
     //============================================================
     // ФИЛЬТЫ
 
-    // NoUsed
-//    @GetMapping("/products/change-price")
-//    public void changePrice(@RequestParam Long productId, @RequestParam Integer delta) {
-//        productService.changePrice(productId, delta);
-//    }
-
-//    @GetMapping("/products/change-price-to-delta")
-//    public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
-//        productService.changePriceToDelta(id, delta);
-//    }
-
-
 /*
     // http://localhost:8189/app/products/price_between?min=50&max70
     @GetMapping("/products/price-between")
@@ -101,8 +95,6 @@ public class ProductController {
             ) {
         return productService.findAllByPriceBetween(min, max);
     }
-
-
 
     //==============================
     // http://localhost:8189/app/products/price-belowlimit?maxLimit=50

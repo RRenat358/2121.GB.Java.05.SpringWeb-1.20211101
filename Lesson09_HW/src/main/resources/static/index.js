@@ -28,13 +28,13 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
-    $scope.changePrice = function (productId, delta) {
+    $scope.changePrice = function (id, newPrice) {
         $http({
             url: contextPath + '/products/change-price',
-            method: 'GET',
+            method: 'PATCH',
             params: {
-                productId: productId,
-                delta: delta
+                productId: id,
+                newPrice: newPrice
             }
         }).then(function (response) {
             $scope.loadProduct();

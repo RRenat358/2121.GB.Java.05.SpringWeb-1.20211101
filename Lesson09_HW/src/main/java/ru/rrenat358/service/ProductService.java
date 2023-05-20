@@ -8,7 +8,6 @@ import ru.rrenat358.entities.Product;
 import ru.rrenat358.repositories.ProductRepository;
 import ru.rrenat358.repositories.specifications.ProductSpecifications;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
@@ -53,22 +52,27 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public void deleteById(Long id) {
-        productRepository.deleteById(id);
-    }
-
-    // NoUsed
-//    @Transactional
-//    public void changePrice(Long productId, Integer delta) {
-//        Product product = productRepository.findById(productId)
-//                .orElseThrow(()-> new ResourceNotFoundException("Продукт не найден для ID : " + productId));
-//        product.setPrice(product.getPrice() + delta);
-//    }
-
     @Transactional
     public void changePriceToDelta(Long id, Integer delta) {
         productRepository.changePriceToDelta(id, delta);
     }
+
+    // NoUsed
+    @Transactional
+    public void changePrice(Long id, Integer newPrice) {
+        productRepository.changePrice(id, newPrice);
+    }
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
+
+
+
 
 
     public List<Product> findAllByPriceBetween(Integer min, Integer max) {
@@ -83,8 +87,5 @@ public class ProductService {
         return productRepository.findAllByPriceAboveLimit(minLimit);
     }
 
-    public Product saveProduct(Product product) {
-        return productRepository.save(product);
-    }
 
 }
