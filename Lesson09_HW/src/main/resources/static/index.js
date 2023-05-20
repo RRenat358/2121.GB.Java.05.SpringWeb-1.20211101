@@ -22,7 +22,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
     //============================================================
     $scope.deleteProduct = function (productId) {
-        $http.get(contextPath + '/products/delete/' + productId)
+        $http.delete(contextPath + '/products/' + productId)
             .then(function (response) {
                 $scope.loadProduct();
             });
@@ -43,8 +43,9 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
     $scope.changePriceToDelta = function (id, delta) {
         $http({
+            // url: contextPath + '/products/change-price-to-delta',
             url: contextPath + '/products/change-price-to-delta',
-            method: 'GET',
+            method: 'PATCH',
             params: {
                 id: id,
                 delta: delta

@@ -44,7 +44,27 @@ public class ProductController {
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
     }
 
-    @GetMapping("/products/delete/{id}")
+
+
+    //============================================================
+    // POST
+
+    @PostMapping("/products")
+    public Product saveNewProduct(@RequestBody Product product) {
+        product.setId(null); //на всякий случай
+        return productService.saveProduct(product);
+    }
+
+    //============================================================
+    // PATCH
+    @PatchMapping("/products/change-price-to-delta")
+    public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
+        productService.changePriceToDelta(id, delta);
+    }
+
+    //============================================================
+    // DELETE
+    @DeleteMapping("/products/{id}")
     public void deleteById(@PathVariable Long id) {
         productService.deleteById(id);
     }
@@ -59,11 +79,13 @@ public class ProductController {
 //        productService.changePrice(productId, delta);
 //    }
 
-    @GetMapping("/products/change-price-to-delta")
-    public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
-        productService.changePriceToDelta(id, delta);
-    }
+//    @GetMapping("/products/change-price-to-delta")
+//    public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
+//        productService.changePriceToDelta(id, delta);
+//    }
 
+
+/*
     // http://localhost:8189/app/products/price_between?min=50&max70
     @GetMapping("/products/price-between")
     public List<Product> findAllByPriceBetween(
@@ -87,14 +109,7 @@ public class ProductController {
         return productService.findAllByPriceAboveLimit(minLimit);
     }
 
-
-    //============================================================
-    // POST
-
-    @PostMapping("/products")
-    public Product saveNewProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
-    }
+*/
 
 
 }
