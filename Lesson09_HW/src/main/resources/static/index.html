@@ -76,9 +76,9 @@
     <hr>
     <h4>Добавить Продукт</h4>
     <form novalidate ng-submit="saveNewProductFun()">
-        <input class="form-control" type="text" id="addNewName" placeholder="имя продукта" ng-model="saveNewProduct.name">
+        <input class="form-control" type="text" id="addName" placeholder="имя продукта" ng-model="newProduct.name">
         <br>
-        <input class="form-control" type="number" id="addNewPrice" placeholder="цена" ng-model="saveNewProduct.price">
+        <input class="form-control" type="number" id="addPrice" placeholder="цена" ng-model="newProduct.price">
         <br>
         <button type="submit" class="btn btn-outline-success">Сохранить</button>
     </form>

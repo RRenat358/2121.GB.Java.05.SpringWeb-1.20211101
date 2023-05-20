@@ -56,8 +56,8 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
 
     //============================================================
     $scope.saveNewProductFun = function () {
-        console.log($scope.saveNewProduct);
-        $http.post(contextPath + '/products', $scope.saveNewProduct)
+        console.log($scope.newProduct);
+        $http.post(contextPath + '/products', $scope.newProduct)
             .then(function (response) {
                 $scope.loadProduct();
             });
