@@ -40,7 +40,7 @@ public class ProductController {
             page = 1;
         }
         return productService.findByFilter(page, namePart, minPrice, maxPrice)
-                .map(product -> new ProductDto(product));
+                .map(product -> productConverter.entityToDto(product));
     }
 
 
