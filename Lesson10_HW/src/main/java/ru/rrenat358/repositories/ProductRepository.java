@@ -10,17 +10,6 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 
-    List<Product> findAllByPriceBetween(Integer min, Integer max);
-
-
-    //@Query("SELECT p FROM Product p WHERE p.price < 20")
-    @Query("SELECT p FROM Product p WHERE p.price < ?1")
-    List<Product> findAllByPriceBelowLimit(Integer maxLimit);
-
-    //@Query("SELECT p FROM Product p WHERE p.price > 80")
-    @Query("SELECT p FROM Product p WHERE p.price > ?1")
-    List<Product> findAllByPriceAboveLimit(Integer minLimit);
-
     @Modifying
     @Query("UPDATE Product p SET p.price = p.price + ?2 WHERE p.id = ?1")
     void changePriceToDelta(Long id, Integer price);

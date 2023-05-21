@@ -76,19 +76,4 @@ public class ProductService {
 
 
 
-
-
-    public List<Product> findAllByPriceBetween(Integer min, Integer max) {
-        return productRepository.findAllByPriceBetween(min, max);
-    }
-
-    public List<Product> findAllByPriceBelowLimit(Integer maxLimit) {
-        return productRepository.findAllByPriceBelowLimit(maxLimit);
-    }
-
-    public List<Product> findAllByPriceAboveLimit(Integer minLimit) {
-        return productRepository.findAllByPriceAboveLimit(minLimit);
-    }
-
-
 }
