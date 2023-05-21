@@ -35,10 +35,10 @@ public class ProductService {
             spec = spec.and(ProductSpecifications.nameLike(namePart));
         }
         if (minPrice != null) {
-            spec = spec.and(ProductSpecifications.scoreGreaterOrEqualsThan(minPrice));
+            spec = spec.and(ProductSpecifications.priceGreaterOrEqualsThan(minPrice));
         }
         if (maxPrice != null) {
-            spec = spec.and(ProductSpecifications.scoreLessThanOrEqualsThan(maxPrice));
+            spec = spec.and(ProductSpecifications.priceLessThanOrEqualsThan(maxPrice));
         }
 
         return productRepository.findAll(spec, pageRequest);

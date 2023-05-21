@@ -9,11 +9,11 @@ public class ProductSpecifications {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), String.format("%%%s%%", namePart));
     }
 
-    public static Specification<Product> scoreGreaterOrEqualsThan(Integer price) {
+    public static Specification<Product> priceGreaterOrEqualsThan(Integer price) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
     }
 
-    public static Specification<Product> scoreLessThanOrEqualsThan(Integer price) {
+    public static Specification<Product> priceLessThanOrEqualsThan(Integer price) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("price"), price);
     }
 
