@@ -28,17 +28,17 @@
             <td>Действие</td>
         </tr>
         <tbody>
-        <tr ng-repeat="s in ProductList">
-            <td>{{s.id}}</td>
-            <td>{{s.name}}</td>
-            <td>{{s.price}}</td>
+        <tr ng-repeat="p in ProductList.content">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
             <td>
-                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(s.id, -5)">-</button>
-                {{s.price}}
-                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(s.id, 5)">+</button>
+                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(p.id, -5)">-</button>
+                {{p.price}}
+                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(p.id, 5)">+</button>
             </td>
             <td>
-                <button class="btn btn-danger" ng-click="deleteProduct(s.id)">Удалить</button>
+                <button class="btn btn-danger" ng-click="deleteProduct(p.id)">Удалить</button>
             </td>
         </tr>
         </tbody>

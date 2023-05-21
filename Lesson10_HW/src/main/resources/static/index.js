@@ -16,7 +16,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             }
         }).then(function (response) {
             console.log(response.data);
-            $scope.ProductList = response.data.content;
+            $scope.ProductList = response.data;
         });
     }
 

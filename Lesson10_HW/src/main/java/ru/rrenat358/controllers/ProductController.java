@@ -1,5 +1,6 @@
 package ru.rrenat358.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.rrenat358.dto.ProductDto;
@@ -10,14 +11,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/products")
+@RequiredArgsConstructor
 public class ProductController {
 
+    final ProductService productService;
 
-    ProductService productService;
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    //============================================================
+    // GET
 
     // NoUsed
 //    @GetMapping("")
@@ -100,8 +101,6 @@ public class ProductController {
     public void deleteById(@PathVariable Long id) {
         productService.deleteById(id);
     }
-
-
 
 
 }
