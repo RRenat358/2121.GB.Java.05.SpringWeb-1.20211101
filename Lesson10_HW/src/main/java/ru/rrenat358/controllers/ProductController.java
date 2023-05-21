@@ -44,10 +44,6 @@ public class ProductController {
     }
 
 
-//    @GetMapping("/{id}")
-//    public Optional<ProductDto> findById(@PathVariable Long id) {
-//        return productService.findById(id).map(product -> new ProductDto(product));
-//    }
     @GetMapping("/{id}")
     public ProductDto findById(@PathVariable Long id) {
         Product product = productService.findById(id)
@@ -58,12 +54,6 @@ public class ProductController {
 
     //============================================================
     // POST
-//    @PostMapping("")
-//    @PostMapping
-//    public Product saveNewProduct(@RequestBody Product product) {
-//        product.setId(null); //на всякий случай
-//        return productService.saveProduct(product);
-//    }
 
     @PostMapping
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
@@ -88,17 +78,32 @@ public class ProductController {
     //============================================================
     // PUT
 
+//    @PutMapping
+//    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
+//        Optional<Product> product = productService.findById(productDto.getId());
+//        if (product.isPresent()) {
+//            product.get().setName(productDto.getName());
+//            product.get().setPrice(productDto.getPrice());
+//            Product product2 = productService.saveProduct(product.get());
+//            return new ProductDto(product2);
+//        }
+//        return null;
+//    }
+
     @PutMapping
     public ProductDto updateProduct(@RequestBody ProductDto productDto) {
-        Optional<Product> product = productService.findById(productDto.getId());
-        if (product.isPresent()) {
-            product.get().setName(productDto.getName());
-            product.get().setPrice(productDto.getPrice());
-            Product product2 = productService.saveProduct(product.get());
-            return new ProductDto(product2);
-        }
-        return null;
+        Product product = productConverter.dtoToEntity(productDto);
+        product = productService.updateProduct(product);
+        return productConverter.entityToDto(product);
     }
+    // OR
+//    @PutMapping
+//    public ProductDto updateProduct2(@RequestBody ProductDto productDto) {
+//        productValidator.validate(productDto);
+//        Product product = productsService.update(productDto);
+//        return productConverter.entityToDto(product);
+//    }
+
 
     //============================================================
     // DELETE

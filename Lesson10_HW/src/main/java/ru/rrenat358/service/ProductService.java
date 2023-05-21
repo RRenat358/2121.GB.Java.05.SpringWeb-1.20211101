@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.repositories.ProductRepository;
@@ -70,6 +71,29 @@ public class ProductService {
     public void deleteById(Long id) {
         productRepository.deleteById(id);
     }
+
+
+
+    @Transactional
+    public Product updateProduct(Product product) {
+        Product productFind = productRepository.findById(product.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + product.getId()));
+        productFind.setName(product.getName());
+        productFind.setPrice(product.getPrice());
+        //etc.
+        productRepository.save(productFind);
+        return productFind;
+    }
+    // OR
+    @Transactional
+    public Product updateProduct2(ProductDto productDto) {
+        Product product = productRepository.findById(productDto.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Невозможно обновить продукта, не найден в базе, id: " + productDto.getId()));
+        product.setPrice(productDto.getPrice());
+        product.setName(productDto.getName());
+        return product;
+    }
+
 
 
 
