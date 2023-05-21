@@ -49,8 +49,7 @@ public class ProductService {
     }
 
     public Optional<Product> findById(Long id) {
-        return Optional.ofNullable(productRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id)));
+        return productRepository.findById(id);
     }
 
     @Transactional

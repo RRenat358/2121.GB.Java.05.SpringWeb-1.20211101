@@ -3,8 +3,10 @@ package ru.rrenat358.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import ru.rrenat358.converters.ProductConverter;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
+import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductService;
 
 import java.util.Optional;
@@ -15,6 +17,7 @@ import java.util.Optional;
 public class ProductController {
 
     final ProductService productService;
+    final ProductConverter productConverter;
 
 
     //============================================================
@@ -41,9 +44,15 @@ public class ProductController {
     }
 
 
+//    @GetMapping("/{id}")
+//    public Optional<ProductDto> findById(@PathVariable Long id) {
+//        return productService.findById(id).map(product -> new ProductDto(product));
+//    }
     @GetMapping("/{id}")
-    public Optional<ProductDto> findById(@PathVariable Long id) {
-        return productService.findById(id).map(product -> new ProductDto(product));
+    public ProductDto findById(@PathVariable Long id) {
+        Product product = productService.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
+        return productConverter.entityToDto(product);
     }
 
 
@@ -58,13 +67,9 @@ public class ProductController {
 
     @PostMapping
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
-        productDto.setId(null); //на всякий случай
-        Product product = new Product();
-        product.setId(productDto.getId());
-        product.setName(productDto.getName());
-        product.setPrice(productDto.getPrice());
-        Product product2 = productService.saveProduct(product);
-        return new ProductDto(product2);
+        Product product = productConverter.dtoToEntity(productDto);
+        product = productService.saveProduct(product);
+        return productConverter.entityToDto(product);
     }
 
     //============================================================
