@@ -4,12 +4,14 @@ package ru.rrenat358.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product {
@@ -45,4 +47,12 @@ public class Product {
 
 
 
+    //ProductDto
+
+
+    public Product(Long id, String name, Integer price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
 }
