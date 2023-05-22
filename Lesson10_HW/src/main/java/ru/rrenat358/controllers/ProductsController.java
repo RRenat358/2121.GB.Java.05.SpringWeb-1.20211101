@@ -58,31 +58,6 @@ public class ProductsController {
     }
 
 
-
-//    public Page<Product> addToBasket(@RequestParam Long id) {
-//
-//        Product product = productsService.addToBasket(id);
-//        basket.addToBasket(product);
-//
-//        Page<Product> productPage = null;
-//        productPage.map(product1 -> basket);
-//
-//        return productPage;
-//    }
-
-    @GetMapping("/basket")
-    public Page<Product> addToBasket(@RequestParam Long id) {
-
-        Page<Product> productPage = productsService.addToBasket(id);
-
-        return productPage;
-    }
-
-
-
-
-
-
     //============================================================
     // POST
 

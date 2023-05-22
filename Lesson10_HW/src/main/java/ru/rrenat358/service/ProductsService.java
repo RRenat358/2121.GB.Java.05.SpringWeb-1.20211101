@@ -58,31 +58,6 @@ public class ProductsService {
         return productsRepository.findById(id);
     }
 
-//    public Product addToBasket(Long id) {
-//        Product product = productsRepository.findById(id)
-//                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
-//
-//        basket.addToBasket(product);
-//
-//        Page<Product> productPage = null;
-//        productPage.map(product1 -> basket);
-//
-//        return product;
-//    }
-
-    public Page<Product> addToBasket(Long id) {
-        Product product = productsRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
-
-        basket.addToBasket(product);
-
-        Page<Product> productPage = null;
-        productPage.map(product1 -> basket);
-
-        return productPage;
-    }
-
-
     @Transactional
     public void changePriceToDelta(Long id, Integer delta) {
         productsRepository.changePriceToDelta(id, delta);
