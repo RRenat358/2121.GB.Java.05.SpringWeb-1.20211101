@@ -70,10 +70,10 @@ public class ProductsController {
 //        return productPage;
 //    }
 
+    @GetMapping("/basket")
     public Page<Product> addToBasket(@RequestParam Long id) {
 
         Page<Product> productPage = productsService.addToBasket(id);
-
 
         return productPage;
     }
