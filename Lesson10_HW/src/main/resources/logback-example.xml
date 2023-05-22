@@ -1,4 +1,8 @@
 <configuration>
+
+<!--    A Guide to Rolling File Appenders | Baeldung-->
+<!--    https://www.baeldung.com/java-logging-rolling-file-appenders-->
+
     # Console appender
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -10,7 +14,7 @@
     # File appender
     <appender name="fout" class="ch.qos.logback.core.FileAppender">
         # Name of a log file
-        <file>log4j/target/baeldung-logback.log</file>
+        <file>slf4j/target/baeldung-logback.log</file>
         <append>false</append>
         <encoder>
             # Pattern of log message for file appender
