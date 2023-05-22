@@ -8,6 +8,7 @@ import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductsService;
+import ru.rrenat358.validators.ProductValidator;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -16,6 +17,7 @@ public class ProductsController {
 
     final ProductsService productsService;
     final ProductConverter productConverter;
+    private ProductValidator productValidator;
 
 
     //============================================================
@@ -55,6 +57,7 @@ public class ProductsController {
 
     @PostMapping
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
+        productValidator.validator(productDto);
         Product product = productConverter.dtoToEntity(productDto);
         product = productsService.saveProduct(product);
         return productConverter.entityToDto(product);
