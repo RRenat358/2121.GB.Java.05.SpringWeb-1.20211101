@@ -17,7 +17,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
         }).then(function (response) {
             console.log(response.data);
             $scope.ProductList = response.data;
-            $scope.loadBasket();
+            // $scope.loadBasket();
         });
     }
 
@@ -64,23 +64,23 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
-
+/*
     //============================================================
     //Page<Product> findByFilter()
     $scope.loadBasket = function (id) {
         // console.log($scope.filter);
         $http({
-            url: contextPath + '/basket',
+            url: contextPath + '/baskets',
             method: 'GET',
             params: {
-                id: id
+                id: $scope.filter ? $scope.filter.id : null
             }
         }).then(function (response) {
             $scope.BasketList = response.data;
             // $scope.loadProduct();
         });
     }
-
+*/
 
 
     $scope.loadProduct();

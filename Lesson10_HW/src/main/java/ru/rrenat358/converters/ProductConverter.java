@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 @Component
 public class ProductConverter {
 
+    //============================================================
     public Product dtoToEntity(ProductDto productDto) {
         return new Product(productDto.getId(), productDto.getName(), productDto.getPrice());
     }
@@ -18,14 +19,15 @@ public class ProductConverter {
         return new ProductDto(product.getId(), product.getName(), product.getPrice());
     }
 
-
-
+    //============================================================
     public List<Product> dtoToEntityList(List<ProductDto> productDtoList) {
         List<Product> productList = productDtoList
                 .stream()
                 .map(productDto -> {
                     Product product = new Product();
                     product.setId(productDto.getId());
+                    product.setName(productDto.getName());
+                    product.setPrice(productDto.getPrice());
                     return product;
                 })
                 .collect(Collectors.toList());
@@ -38,11 +40,15 @@ public class ProductConverter {
                 .map(product -> {
                     ProductDto productDto = new ProductDto();
                     productDto.setId(product.getId());
+                    productDto.setName(product.getName());
+                    productDto.setPrice(product.getPrice());
                     return productDto;
                 })
                 .collect(Collectors.toList());
         return productDtoList;
     }
+
+    //============================================================
 
 
 }

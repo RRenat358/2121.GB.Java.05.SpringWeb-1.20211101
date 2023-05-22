@@ -2,17 +2,12 @@ package ru.rrenat358.Basket;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.rrenat358.converters.ProductConverter;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
-import ru.rrenat358.service.ProductsService;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/baskets")
@@ -30,14 +25,18 @@ public class BasketController {
     }
 
     @GetMapping("/add/{id}")
-    public List<ProductDto> addToBasket(@RequestParam Long id) {
+    public List<ProductDto> addToBasket(@PathVariable Long id) {
         List<Product> productList = basketService.addToBasket(id);
         return productConverter.entityToDtoList(productList);
     }
 
+    @GetMapping("/remove/{id}")
+    public List<ProductDto> removeFromBasket(@PathVariable Long id) {
+        List<Product> productList = basketService.removeFromBasket(id);
+        return productConverter.entityToDtoList(productList);
+    }
 
-    @DeleteMapping("/clear")
-
+    @GetMapping("/clear")
     public List<ProductDto> clearBasket() {
         List<Product> productList = basketService.clearBasket();
         return productConverter.entityToDtoList(productList);

@@ -36,14 +36,12 @@ public class Basket {
     }
 
     public List<Product> addToBasket(Product product) {
-//        Product product = productConverter.entityToDto(product);
         products.add(product);
         return products;
     }
 
     public List<Product> removeFromBasket(Product product) {
-//        Product product = productConverter.entityToDto(product);
-//        products.add(product);
+        products.remove(product);
         return products;
     }
 
