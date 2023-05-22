@@ -40,6 +40,9 @@
             <td>
                 <button class="btn btn-danger" ng-click="deleteProduct(p.id)">Удалить</button>
             </td>
+            <td>
+                <button class="btn btn-outline-success" ng-click="loadBasket(p.id)">addBasket</button>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -82,6 +85,36 @@
         <br>
         <button type="submit" class="btn btn-outline-success">Сохранить</button>
     </form>
+    <br>
+
+    <!--============================================================-->
+    <hr>
+    <h3>Корзина</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>ID</td>
+            <td>Товар</td>
+            <td>Цена</td>
+            <td>Изменить цену</td>
+            <td>Действие</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="p in BasketList.content">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(p.id, -5)">-</button>
+                {{p.price}}
+                <button class="btn btn-outline-primary" ng-click="changePriceToDelta(p.id, 5)">+</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" ng-click="deleteProduct(p.id)">Удалить</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
     <br>
 
 

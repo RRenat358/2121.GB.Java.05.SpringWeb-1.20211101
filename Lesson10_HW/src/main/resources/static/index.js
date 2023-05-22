@@ -17,6 +17,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
         }).then(function (response) {
             console.log(response.data);
             $scope.ProductList = response.data;
+            $scope.loadBasket();
         });
     }
 
@@ -64,7 +65,21 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     }
 
 
-
+    //============================================================
+    //Page<Product> findByFilter()
+    $scope.loadBasket = function (id) {
+        // console.log($scope.filter);
+        $http({
+            url: contextPath + '/basket',
+            method: 'GET',
+            params: {
+                id: id
+            }
+        }).then(function (response) {
+            $scope.BasketList = response.data;
+            // $scope.loadProduct();
+        });
+    }
 
 
 
