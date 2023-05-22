@@ -62,6 +62,7 @@ public class ProductsController {
 
     //============================================================
     // PATCH
+
     @PatchMapping("/change-price-to-delta")
     public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
         productsService.changePriceToDelta(id, delta);
@@ -76,35 +77,26 @@ public class ProductsController {
     //============================================================
     // PUT
 
-//    @PutMapping
-//    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
-//        Optional<Product> product = productsService.findById(productDto.getId());
-//        if (product.isPresent()) {
-//            product.get().setName(productDto.getName());
-//            product.get().setPrice(productDto.getPrice());
-//            Product product2 = productsService.saveProduct(product.get());
-//            return new ProductDto(product2);
-//        }
-//        return null;
-//    }
-
+    //============================================================
     @PutMapping
     public ProductDto updateProduct(@RequestBody ProductDto productDto) {
         Product product = productConverter.dtoToEntity(productDto);
         product = productsService.updateProduct(product);
         return productConverter.entityToDto(product);
     }
-    // OR
+    // OR --------------------
 //    @PutMapping
 //    public ProductDto updateProduct2(@RequestBody ProductDto productDto) {
 //        productValidator.validate(productDto);
 //        Product product = productsService.update(productDto);
 //        return productConverter.entityToDto(product);
 //    }
+    //============================================================
 
 
     //============================================================
     // DELETE
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
         productsService.deleteById(id);

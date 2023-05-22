@@ -73,7 +73,7 @@ public class ProductsService {
     }
 
 
-
+    //============================================================
     @Transactional
     public Product updateProduct(Product product) {
         Product productFind = productsRepository.findById(product.getId())
@@ -84,7 +84,7 @@ public class ProductsService {
         productsRepository.save(productFind);
         return productFind;
     }
-    // OR
+    // OR ------------------
     @Transactional
     public Product updateProduct2(ProductDto productDto) {
         Product product = productsRepository.findById(productDto.getId())
@@ -93,6 +93,7 @@ public class ProductsService {
         product.setName(productDto.getName());
         return product;
     }
+    //============================================================
 
 
 
