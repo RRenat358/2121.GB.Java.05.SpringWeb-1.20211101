@@ -15,9 +15,9 @@ import ru.rrenat358.validators.ProductValidator;
 @RequiredArgsConstructor
 public class ProductsController {
 
-    final ProductsService productsService;
-    final ProductConverter productConverter;
-    private ProductValidator productValidator;
+    private final ProductsService productsService;
+    private final ProductConverter productConverter;
+    private final ProductValidator productValidator;
 
 
     //============================================================
