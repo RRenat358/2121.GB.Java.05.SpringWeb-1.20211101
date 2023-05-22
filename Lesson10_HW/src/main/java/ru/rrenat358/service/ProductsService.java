@@ -1,6 +1,7 @@
 package ru.rrenat358.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductsService {
 
     private final ProductsRepository productsRepository;
@@ -39,7 +41,7 @@ public class ProductsService {
         if (maxPrice != null) {
             spec = spec.and(ProductsSpecifications.priceLessThanOrEqualsThan(maxPrice));
         }
-
+        log.info("--- findByFilter -------------------");
         return productsRepository.findAll(spec, pageRequest);
     }
 
