@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import ru.rrenat358.Basket.Basket;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
@@ -22,6 +23,8 @@ import java.util.Optional;
 public class ProductsService {
 
     private final ProductsRepository productsRepository;
+
+    private final Basket basket;
 
 
     public Page<Product> findByFilter(
@@ -41,7 +44,7 @@ public class ProductsService {
         if (maxPrice != null) {
             spec = spec.and(ProductsSpecifications.priceLessThanOrEqualsThan(maxPrice));
         }
-        log.info("--- findByFilter -------------------");
+//        log.info("--- findByFilter -------------------");
         return productsRepository.findAll(spec, pageRequest);
     }
 
@@ -54,6 +57,31 @@ public class ProductsService {
     public Optional<Product> findById(Long id) {
         return productsRepository.findById(id);
     }
+
+//    public Product addToBasket(Long id) {
+//        Product product = productsRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
+//
+//        basket.addToBasket(product);
+//
+//        Page<Product> productPage = null;
+//        productPage.map(product1 -> basket);
+//
+//        return product;
+//    }
+
+    public Page<Product> addToBasket(Long id) {
+        Product product = productsRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
+
+        basket.addToBasket(product);
+
+        Page<Product> productPage = null;
+        productPage.map(product1 -> basket);
+
+        return productPage;
+    }
+
 
     @Transactional
     public void changePriceToDelta(Long id, Integer delta) {
@@ -86,6 +114,7 @@ public class ProductsService {
         productsRepository.save(productFind);
         return productFind;
     }
+
     // OR ------------------
     @Transactional
     public Product updateProduct2(ProductDto productDto) {
@@ -96,8 +125,6 @@ public class ProductsService {
         return product;
     }
     //============================================================
-
-
 
 
 }

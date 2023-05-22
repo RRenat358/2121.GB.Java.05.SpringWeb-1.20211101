@@ -3,12 +3,16 @@ package ru.rrenat358.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import ru.rrenat358.Basket.Basket;
+import ru.rrenat358.Basket.BasketService;
 import ru.rrenat358.converters.ProductConverter;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
 import ru.rrenat358.service.ProductsService;
 import ru.rrenat358.validators.ProductValidator;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -18,6 +22,8 @@ public class ProductsController {
     private final ProductsService productsService;
     private final ProductConverter productConverter;
     private final ProductValidator productValidator;
+
+    private final Basket basket;
 
 
     //============================================================
@@ -50,6 +56,31 @@ public class ProductsController {
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
         return productConverter.entityToDto(product);
     }
+
+
+
+//    public Page<Product> addToBasket(@RequestParam Long id) {
+//
+//        Product product = productsService.addToBasket(id);
+//        basket.addToBasket(product);
+//
+//        Page<Product> productPage = null;
+//        productPage.map(product1 -> basket);
+//
+//        return productPage;
+//    }
+
+    public Page<Product> addToBasket(@RequestParam Long id) {
+
+        Page<Product> productPage = productsService.addToBasket(id);
+
+
+        return productPage;
+    }
+
+
+
+
 
 
     //============================================================
