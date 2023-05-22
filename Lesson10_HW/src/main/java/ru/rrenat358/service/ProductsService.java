@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
-import ru.rrenat358.repositories.ProductRepository;
-import ru.rrenat358.repositories.specifications.ProductSpecifications;
+import ru.rrenat358.repositories.ProductsRepository;
+import ru.rrenat358.repositories.specifications.ProductsSpecifications;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -17,9 +17,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProductsService {
 
-    private final ProductRepository productRepository;
+    private final ProductsRepository productsRepository;
 
 
     public Page<Product> findByFilter(
@@ -31,63 +31,63 @@ public class ProductService {
         Specification<Product> spec = Specification.where(null);
 
         if (namePart != null) {
-            spec = spec.and(ProductSpecifications.nameLike(namePart));
+            spec = spec.and(ProductsSpecifications.nameLike(namePart));
         }
         if (minPrice != null) {
-            spec = spec.and(ProductSpecifications.priceGreaterOrEqualsThan(minPrice));
+            spec = spec.and(ProductsSpecifications.priceGreaterOrEqualsThan(minPrice));
         }
         if (maxPrice != null) {
-            spec = spec.and(ProductSpecifications.priceLessThanOrEqualsThan(maxPrice));
+            spec = spec.and(ProductsSpecifications.priceLessThanOrEqualsThan(maxPrice));
         }
 
-        return productRepository.findAll(spec, pageRequest);
+        return productsRepository.findAll(spec, pageRequest);
     }
 
 
     // NoUsed
     public List<Product> findAll() {
-        return productRepository.findAll();
+        return productsRepository.findAll();
     }
 
     public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
+        return productsRepository.findById(id);
     }
 
     @Transactional
     public void changePriceToDelta(Long id, Integer delta) {
-        productRepository.changePriceToDelta(id, delta);
+        productsRepository.changePriceToDelta(id, delta);
     }
 
     // NoUsed
     @Transactional
     public void changePrice(Long id, Integer newPrice) {
-        productRepository.changePrice(id, newPrice);
+        productsRepository.changePrice(id, newPrice);
     }
 
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+        return productsRepository.save(product);
     }
 
     public void deleteById(Long id) {
-        productRepository.deleteById(id);
+        productsRepository.deleteById(id);
     }
 
 
 
     @Transactional
     public Product updateProduct(Product product) {
-        Product productFind = productRepository.findById(product.getId())
+        Product productFind = productsRepository.findById(product.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + product.getId()));
         productFind.setName(product.getName());
         productFind.setPrice(product.getPrice());
         //etc.
-        productRepository.save(productFind);
+        productsRepository.save(productFind);
         return productFind;
     }
     // OR
     @Transactional
     public Product updateProduct2(ProductDto productDto) {
-        Product product = productRepository.findById(productDto.getId())
+        Product product = productsRepository.findById(productDto.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Невозможно обновить продукта, не найден в базе, id: " + productDto.getId()));
         product.setPrice(productDto.getPrice());
         product.setName(productDto.getName());

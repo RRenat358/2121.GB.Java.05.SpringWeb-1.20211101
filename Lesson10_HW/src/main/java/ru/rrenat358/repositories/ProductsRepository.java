@@ -6,9 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import ru.rrenat358.entities.Product;
 
-import java.util.List;
-
-public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
+public interface ProductsRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 
     @Modifying
     @Query("UPDATE Product p SET p.price = p.price + ?2 WHERE p.id = ?1")

@@ -3,7 +3,7 @@ package ru.rrenat358.repositories.specifications;
 import org.springframework.data.jpa.domain.Specification;
 import ru.rrenat358.entities.Product;
 
-public class ProductSpecifications {
+public class ProductsSpecifications {
 
     public static Specification<Product> nameLike(String namePart) {
         return (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), String.format("%%%s%%", namePart));

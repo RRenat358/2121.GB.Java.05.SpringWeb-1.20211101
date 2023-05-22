@@ -7,16 +7,14 @@ import ru.rrenat358.converters.ProductConverter;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
-import ru.rrenat358.service.ProductService;
-
-import java.util.Optional;
+import ru.rrenat358.service.ProductsService;
 
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
-public class ProductController {
+public class ProductsController {
 
-    final ProductService productService;
+    final ProductsService productsService;
     final ProductConverter productConverter;
 
 
@@ -26,7 +24,7 @@ public class ProductController {
     // NoUsed
 //    @GetMapping("")
 //    public List<Product> findAll() {
-//        return productService.findAll();
+//        return productsService.findAll();
 //    }
 
     @GetMapping
@@ -39,14 +37,14 @@ public class ProductController {
         if (page < 1) {
             page = 1;
         }
-        return productService.findByFilter(page, namePart, minPrice, maxPrice)
+        return productsService.findByFilter(page, namePart, minPrice, maxPrice)
                 .map(product -> productConverter.entityToDto(product));
     }
 
 
     @GetMapping("/{id}")
     public ProductDto findById(@PathVariable Long id) {
-        Product product = productService.findById(id)
+        Product product = productsService.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Продукт не найден для ID : " + id));
         return productConverter.entityToDto(product);
     }
@@ -58,7 +56,7 @@ public class ProductController {
     @PostMapping
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {
         Product product = productConverter.dtoToEntity(productDto);
-        product = productService.saveProduct(product);
+        product = productsService.saveProduct(product);
         return productConverter.entityToDto(product);
     }
 
@@ -66,13 +64,13 @@ public class ProductController {
     // PATCH
     @PatchMapping("/change-price-to-delta")
     public void changePriceToDelta(@RequestParam Long id, @RequestParam Integer delta) {
-        productService.changePriceToDelta(id, delta);
+        productsService.changePriceToDelta(id, delta);
     }
 
     // NoUsed
     @PatchMapping("/change-price")
     public void changePrice(@RequestParam Long id, @RequestParam Integer newPrice) {
-        productService.changePrice(id, newPrice);
+        productsService.changePrice(id, newPrice);
     }
 
     //============================================================
@@ -80,11 +78,11 @@ public class ProductController {
 
 //    @PutMapping
 //    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
-//        Optional<Product> product = productService.findById(productDto.getId());
+//        Optional<Product> product = productsService.findById(productDto.getId());
 //        if (product.isPresent()) {
 //            product.get().setName(productDto.getName());
 //            product.get().setPrice(productDto.getPrice());
-//            Product product2 = productService.saveProduct(product.get());
+//            Product product2 = productsService.saveProduct(product.get());
 //            return new ProductDto(product2);
 //        }
 //        return null;
@@ -93,7 +91,7 @@ public class ProductController {
     @PutMapping
     public ProductDto updateProduct(@RequestBody ProductDto productDto) {
         Product product = productConverter.dtoToEntity(productDto);
-        product = productService.updateProduct(product);
+        product = productsService.updateProduct(product);
         return productConverter.entityToDto(product);
     }
     // OR
@@ -109,7 +107,7 @@ public class ProductController {
     // DELETE
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id) {
-        productService.deleteById(id);
+        productsService.deleteById(id);
     }
 
 
