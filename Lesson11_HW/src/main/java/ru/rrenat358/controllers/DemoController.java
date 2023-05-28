@@ -36,7 +36,8 @@ public class DemoController {
 
     @GetMapping("/user_info")
     public String daoTestPage(Principal principal) {
-        User user = userService.findByUsername(principal.getName()).orElseThrow(() -> new RuntimeException("Unable to find user by username: " + principal.getName()));
+        User user = userService.findByUsername(principal.getName())
+                .orElseThrow(() -> new RuntimeException("Unable to find user by username: " + principal.getName()));
         return "Authenticated user info: " + user.getUsername() + " : " + user.getEmail();
     }
 }
