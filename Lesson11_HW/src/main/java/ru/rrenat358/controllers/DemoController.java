@@ -40,4 +40,8 @@ public class DemoController {
                 .orElseThrow(() -> new RuntimeException("Unable to find user by username: " + principal.getName()));
         return "Authenticated user info: " + user.getUsername() + " : " + user.getEmail();
     }
+
+
+
+
 }
