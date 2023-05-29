@@ -32,6 +32,11 @@ Lesson11-HomeWork-Tasks
 Сделать как роли, так и права доступа,
 у каждой роли свой набор прав
 
+Пример реализации
+Spring Security - Roles and Privileges | Baeldung
+https://www.baeldung.com/role-and-privilege-for-spring-security-registration
+
+
 ------------------------------------------------------------
 Дополнительные материалы
 

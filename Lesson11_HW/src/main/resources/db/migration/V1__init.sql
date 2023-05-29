@@ -35,10 +35,10 @@ create table authorities (
 
 CREATE TABLE users_authorities (
                              user_id               bigint not null,
-                             role_id               int not null,
-                             primary key (user_id, role_id),
+                             authority_id               int not null,
+                             primary key (user_id, authority_id),
                              foreign key (user_id) references users (id),
-                             foreign key (role_id) references authorities (id)
+                             foreign key (authority_id) references authorities (id)
 );
 
 insert into authorities (name)
@@ -58,6 +58,6 @@ values
 (1, 1);
 
 
-insert into users_authorities (user_id, role_id)
+insert into users_authorities (user_id, authority_id)
 values
     (1, 1);

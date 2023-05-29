@@ -31,7 +31,7 @@ public class User {
 
 
     @ManyToMany
-    @JoinTable(name = "users_authority",
+    @JoinTable(name = "users_authorities",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id"))
     private Collection<Authority> authority;
