@@ -129,7 +129,10 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     $scope.showCurrentUserInfo = function () {
         $http.get('http://localhost:8189/app/api/v1/profile')
             .then(function successCallback(response) {
-                alert('MY NAME IS: ' + response.data.username);
+                // alert('MY NAME IS: ' + response.data.username);
+                alert('My Name == ' + response.data.username + '\n'
+                    // + 'My Role == ' + response.data.password + '\n'
+                );
             }, function errorCallback(response) {
                 alert('UNAUTHORIZED');
             });

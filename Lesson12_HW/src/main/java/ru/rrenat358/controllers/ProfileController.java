@@ -13,6 +13,12 @@ public class ProfileController {
     @GetMapping
     public ProfileDto getCurrentUserInfo(Principal principal) {
         // User user = userService.findByUsername(principal.getName());
-        return new ProfileDto(principal.getName());
+        return new ProfileDto(principal.getName()
+                /*, principal.getRole*/
+        );
     }
+
+
+
+
 }
