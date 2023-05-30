@@ -1,4 +1,6 @@
 
+-- //============================================================
+
 /*
 create table if not exists products (
     id          bigserial primary key,
@@ -13,6 +15,7 @@ values ('Milk', 100),
        ('Cheese', 90);
 */
 
+-- //============================================================
 create table if not exists products (id bigserial primary key,
                                      name varchar(255),
     proteins varchar(255), fats varchar(255), carbohydrates varchar(255), calories varchar(255),
@@ -118,6 +121,7 @@ values
 
 
 
+-- //============================================================
 
 create table users (
     id         bigserial primary key,
@@ -145,6 +149,10 @@ insert into roles (name)
 values ('ROLE_USER'),
        ('ROLE_ADMIN');
 
+
+
+-- //============================================================
+
 insert into users (username, password, email)
 values ('bob', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'bob_johnson@gmail.com'),
        ('john', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'john_johnson@gmail.com');
@@ -152,3 +160,9 @@ values ('bob', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', '
 insert into users_roles (user_id, role_id)
 values (1, 1),
        (2, 2);
+
+
+
+-- //============================================================
+
+
