@@ -1,6 +1,11 @@
 angular.module('app', ['ngStorage']).controller('indexController', function ($scope, $rootScope, $http, $localStorage) {
     const contextPath = 'http://localhost:8189/app/api/v1';
 
+    if ($localStorage.springWebUser) {
+        $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.springWebUser.token;
+    }
+
+
 
     //============================================================
     //Page<Product> findByFilter()
@@ -82,6 +87,7 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     }
 */
 
+    //============================================================
     $scope.tryToAuth = function () {
         $http.post('http://localhost:8189/app/auth', $scope.user)
             .then(function successCallback(response) {
@@ -106,7 +112,20 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
         }
     };
 
+    $scope.clearUser = function () {
+        delete $localStorage.springWebUser;
+        $http.defaults.headers.common.Authorization = '';
+    };
 
+    $rootScope.isUserLoggedIn = function () {
+        if ($localStorage.springWebUser) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+    //============================================================
 
 
 
