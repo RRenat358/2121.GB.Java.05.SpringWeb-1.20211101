@@ -8,7 +8,7 @@ import ru.rrenat358.converters.ProductConverter;
 import ru.rrenat358.dto.ProductDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.exceptions.ResourceNotFoundException;
-import ru.rrenat358.service.ProductsService;
+import ru.rrenat358.services.ProductsService;
 import ru.rrenat358.validators.ProductValidator;
 
 @RestController
