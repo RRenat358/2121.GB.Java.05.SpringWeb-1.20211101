@@ -35,4 +35,19 @@ public class UserService implements UserDetailsService {
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
+
+    public Optional<User> findAllByUsername(String username) {
+//        return userRepository.findByUsername(username);
+        return userRepository.findAllByUsername(username);
+    }
+
+    public User saveUser(User user) {
+        User user1 = new User();
+        user1.setUsername(user.getUsername());
+        user1.setPassword(user.getPassword());
+        user1.setEmail(user.getEmail());
+        return userRepository.save(user1);
+    }
+
+
 }

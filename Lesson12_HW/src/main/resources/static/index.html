@@ -157,7 +157,19 @@
 
     <hr>
     <!--============================================================-->
-    <button class="btn btn-danger" ng-click="showCurrentUserInfo()">Обо мне</button>
+    <hr>
+    <h4>Добавить нового Пользователя</h4>
+    <form novalidate ng-submit="saveNewUser()">
+        <input class="form-control" type="text" id="addUserName" placeholder="имя пользователя" ng-model="newUser.name">
+        <br>
+        <input class="form-control" type="text" id="addUserPassword" placeholder="пароль" ng-model="newUser.password">
+        <br>
+        <input class="form-control" type="text" id="addUserEmail" placeholder="email" ng-model="newUser.email">
+        <br>
+        <button type="submit" class="btn btn-outline-success">Сохранить</button>
+    </form>
+    <br>
+
 
 
     <hr>

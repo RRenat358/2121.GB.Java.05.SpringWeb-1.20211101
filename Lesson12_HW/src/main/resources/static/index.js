@@ -6,7 +6,6 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     }
 
 
-
     //============================================================
     //Page<Product> findByFilter()
     $scope.loadProduct = function (pageIndex = 1) {
@@ -69,23 +68,23 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
             });
     }
 
-/*
-    //============================================================
-    //Page<Product> findByFilter()
-    $scope.loadBasket = function (id) {
-        // console.log($scope.filter);
-        $http({
-            url: contextPath + '/baskets',
-            method: 'GET',
-            params: {
-                id: $scope.filter ? $scope.filter.id : null
-            }
-        }).then(function (response) {
-            $scope.BasketList = response.data;
-            // $scope.loadProduct();
-        });
-    }
-*/
+    /*
+        //============================================================
+        //Page<Product> findByFilter()
+        $scope.loadBasket = function (id) {
+            // console.log($scope.filter);
+            $http({
+                url: contextPath + '/baskets',
+                method: 'GET',
+                params: {
+                    id: $scope.filter ? $scope.filter.id : null
+                }
+            }).then(function (response) {
+                $scope.BasketList = response.data;
+                // $scope.loadProduct();
+            });
+        }
+    */
 
     //============================================================
     $scope.tryToAuth = function () {
@@ -139,7 +138,33 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     }
 
     //============================================================
+    // $scope.saveNewUser = function () {
+    //     console.log($scope.newUser);
+    //     $http.post('http://localhost:8189/app/user-registration', $scope.newUser)
+    //         .then(function (response) {
+    //             console.log($scope.newUser);
+    //             // $scope.loadProduct();
+    //         });
+    // }
 
+    $scope.saveNewUser = function (name, password, email) {
+        console.log($scope.newUser);
+        $http({
+            url: 'http://localhost:8189/app/user-registration',
+            method: 'POST',
+            params: {
+                name: name,
+                password: password,
+                email: email
+            }
+        })
+            .then(function (response) {
+                console.log($scope.newUser);
+                // $scope.loadProduct();
+            });
+    }
+
+    //============================================================
 
 
     $scope.loadProduct();

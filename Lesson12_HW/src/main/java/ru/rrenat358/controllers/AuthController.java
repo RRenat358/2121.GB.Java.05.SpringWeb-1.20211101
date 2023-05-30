@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.dto.JwtRequest;
 import ru.rrenat358.dto.JwtResponse;
+import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.entities.Product;
+import ru.rrenat358.entities.User;
 import ru.rrenat358.exceptions.AppError;
 import ru.rrenat358.services.UserService;
 import ru.rrenat358.utils.JwtTokenUtil;
@@ -34,4 +37,26 @@ public class AuthController {
         String token = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
+
+
+/*
+    @PostMapping("/user-registration")
+    public User saveNewUser(@RequestBody User user) {
+//        Product product = productConverter.dtoToEntity(productDto);
+        user = userService.saveUser(user);
+        return user;
+//        return productConverter.entityToDto(product);
+    }
+*/
+
+    @PostMapping("/user-registration")
+    public User saveNewUser(@RequestBody User user) {
+//        Product product = productConverter.dtoToEntity(productDto);
+        user = userService.saveUser(user);
+        return user;
+//        return productConverter.entityToDto(product);
+    }
+
+
+
 }

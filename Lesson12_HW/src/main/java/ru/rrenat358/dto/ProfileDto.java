@@ -10,4 +10,8 @@ import lombok.NoArgsConstructor;
 public class ProfileDto {
     private String username;
 //    private String role;
+//    private String password;
+//    private String email;
+
+
 }
