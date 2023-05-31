@@ -11,7 +11,7 @@ lesson12.VideoPoint
 00-17-00 == rest api / security / noSessions   
 00-19-00 == token     
 00-22-30 == jwt    
-00-30-00 == Authorization -- Bearer Token    
+00-30-00 == Authorization -- Bearer Token в Postman
 00-32-30 == Sec. Context    
 00-33-30 == цепочка фильтров и данные юзера    
 00-40-00 == старт, минимальная настройка    
@@ -39,6 +39,7 @@ lesson12.VideoPoint
 01-58-00 == проверка работы на фронте  
 02-01-00 == проверка с вебТулз  
 02-07-50 == HomeWork  
+02-09-30 == PasswordEncoder == генерация пароля с шифром и декодирование  
 //end  
 
 

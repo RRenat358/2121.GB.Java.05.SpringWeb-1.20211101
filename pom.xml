@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.rrenat358</groupId>
-    <artifactId>2121.GB.Java.05.SpringWeb.20211101</artifactId>
+    <artifactId>2121.GB.Java.05.SpringWeb-1.20211101</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -43,7 +43,9 @@
         <module>Lesson11-Spring-Security</module>
         <module>Lesson11_HW</module>
 
+
         <module>Lesson12-SpringWeb-FinalBuild</module>
+        <module>Lesson12_HW</module>
     </modules>
 
 
