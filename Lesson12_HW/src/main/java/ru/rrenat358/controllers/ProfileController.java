@@ -9,6 +9,7 @@ import ru.rrenat358.entities.User;
 import ru.rrenat358.services.UserService;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,15 +17,6 @@ import java.security.Principal;
 public class ProfileController {
 
     private final UserService userService;
-
-//    @GetMapping
-//    public ProfileDto getCurrentUserInfo(Principal principal) {
-//        // User user = userService.findByUsername(principal.getName());
-//        return new ProfileDto(
-//                principal.getName()
-//        );
-//    }
-
     @GetMapping
     public ProfileDto getCurrentUserInfo(Principal principal) {
 //         User user = userService.findAllByUsername(principal.getName());
@@ -32,6 +24,20 @@ public class ProfileController {
                 principal.getName()
         );
     }
+
+
+    //============================================================
+    // saveNewUser
+/*
+    @GetMapping
+    public ProfileDto getCurrentUserInfo(Principal principal) {
+         Optional<User> user = userService.findByUsername(principal.getName());
+        return new ProfileDto(
+                user.get().getUsername(), user.get().getPassword(), user.get().getEmail()
+        );
+    }
+*/
+
 
 
 

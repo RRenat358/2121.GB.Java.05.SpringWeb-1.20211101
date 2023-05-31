@@ -147,6 +147,7 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     //         });
     // }
 
+/*
     $scope.saveNewUser = function (name, password, email) {
         console.log($scope.newUser);
         $http({
@@ -163,6 +164,7 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
                 // $scope.loadProduct();
             });
     }
+*/
 
     //============================================================
 

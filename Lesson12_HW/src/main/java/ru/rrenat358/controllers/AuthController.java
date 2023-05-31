@@ -9,10 +9,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.rrenat358.dto.JwtRequest;
 import ru.rrenat358.dto.JwtResponse;
 import ru.rrenat358.dto.ProductDto;
+import ru.rrenat358.dto.ProfileDto;
 import ru.rrenat358.entities.Product;
 import ru.rrenat358.entities.User;
 import ru.rrenat358.exceptions.AppError;
@@ -39,6 +41,9 @@ public class AuthController {
     }
 
 
+
+    //============================================================
+    // saveNewUser
 /*
     @PostMapping("/user-registration")
     public User saveNewUser(@RequestBody User user) {
@@ -49,13 +54,21 @@ public class AuthController {
     }
 */
 
+/*
+
     @PostMapping("/user-registration")
-    public User saveNewUser(@RequestBody User user) {
+    public void saveNewUser(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
 //        Product product = productConverter.dtoToEntity(productDto);
-        user = userService.saveUser(user);
-        return user;
+//        user = userService.saveUser(username, password,email);
+        ProfileDto profileDto = new ProfileDto(username, password, email);
+        userService.saveUser(profileDto);
+
+//        return user;
 //        return productConverter.entityToDto(product);
     }
+*/
+
+    //============================================================
 
 
 
